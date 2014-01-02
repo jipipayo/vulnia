@@ -1,0 +1,35 @@
+<?php if ($this->pageCount > 1):
+    $query = trim(stripcslashes(strip_tags($_GET['q'])));
+    ?>
+
+
+    <ul class="pagination">
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+        <li><a href="<?php echo  '/search?q='.$query.'&page=' .$this->previous; ?>">
+                « <?=$this->translate('Previous'); ?>
+            </a></li>
+        <?php else: ?>
+            <li><span class="disabled">« <?=$this->translate('Previous'); ?></span></li>
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <li><a href="<?php echo  '/search?q='.$query.'&page=' .$page; ?>">
+                    <span id="norm" ><?php echo $page; ?></span></a></li>
+            <?php else: ?>
+                <li class="active"><span id="current"><?php echo $page; ?></span></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+            <li><a href="<?php echo  '/search?q='.$query.'&page=' .$this->next; ?>">
+                <?=$this->translate('Next'); ?> »
+            </a></li>
+        <?php else: ?>
+            <li><span class="disabled"><?=$this->translate('Next'); ?>  »</span></li>
+        <?php endif; ?>
+    </ul>
+<?php endif; ?>
