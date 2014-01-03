@@ -7,7 +7,6 @@ class SearchController extends Zend_Controller_Action
 
     public function indexAction()
     {
-
         $page = $this->_request->getParam('page');
         $this->view->query = $qw = stripcslashes(strip_tags($this->_getParam('q')));
 
@@ -26,6 +25,10 @@ class SearchController extends Zend_Controller_Action
         $resultSph = $this->cl->Query($qw, 'vulns');
 
 
+        if($resultSph === false){
+            die('search engine down');
+        }
+
         if (!is_null($resultSph["matches"])) {
             $modelVuln = new Model_Vuln();
             foreach ($resultSph["matches"] as $doc => $docinfo) {
@@ -35,6 +38,10 @@ class SearchController extends Zend_Controller_Action
             $this->view->query_time = $resultSph['time'];
             $this->view->total_found = $resultSph['total_found'];
             $this->view->title = $resultSph['total_found'] . ' vulnerabilities found for ' . $qw;
+
+            if($page > 0){
+                $this->view->title .= ' - page ' . $page;
+            }
 
             $paginator = Zend_Paginator::factory($resultzs); //resultzs = results in LOLCAT language
             $paginator->setDefaultScrollingStyle('Elastic');

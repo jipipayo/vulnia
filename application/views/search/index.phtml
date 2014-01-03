@@ -1,4 +1,10 @@
-<h2><?php echo $this->total_found ?>  vulnerabilities found for "<?php  echo $this->query ?>" </h2>
+<h2><?php echo $this->total_found ?>  vulnerabilities found for "<?php  echo $this->query ?>"
+<?php
+if($_GET['page'] > 0){
+    echo ' - page ' . $_GET['page'];
+}
+?>
+</h2>
 <! -- query search seconds: <?php echo $this->query_time ?> --->
 <br>
 <?php
