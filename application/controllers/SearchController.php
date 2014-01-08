@@ -25,7 +25,7 @@ class SearchController extends Zend_Controller_Action
         $resultSph = $this->cl->Query($qw, 'vulns');
 
 
-        if($resultSph === false){
+        if($resultSph === false && $qw){
             die('search engine down');
         }
 
@@ -43,7 +43,7 @@ class SearchController extends Zend_Controller_Action
                 $this->view->title .= ' - page ' . $page;
             }
 
-            $paginator = Zend_Paginator::factory($resultzs); //resultzs = results in LOLCAT language
+            $paginator = Zend_Paginator::factory($resultzs);
             $paginator->setDefaultScrollingStyle('Elastic');
             $paginator->setItemCountPerPage(10);
             $paginator->setCurrentPageNumber($page);

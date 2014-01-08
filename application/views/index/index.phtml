@@ -1,8 +1,8 @@
 <h2>Last indexed vulnerabilities:</h2>
 <?php
 foreach ($this->paginator as $val):
-    echo '<h5> <a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=' . $val['ext-id'] . ' ">' . $val['ext-id'] . '</a></h5>';
-    echo '<h3>' . $val['summary'] . '</h3>';
+    echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
+    echo '<h3>' . $val['summary'] . '</h3></a>';
     echo '<p>' . $val['published-datetime'] . '</p><hr>';
 
 endforeach;

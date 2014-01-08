@@ -95,8 +95,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'action' => 'index',
         ));
 
+        $routeVuln = new Zend_Controller_Router_Route (
+            '/vulnerability/*', array(
+            'controller' => 'vulnerability',
+            'action' => 'vulnerability',
+        ));
+
         $router->addRoute('default', $routeDef); //important, put the default route first!
         $router->addRoute('search', $routeSearch);
+        $router->addRoute('vuln', $routeVuln);
 
         $front->setRouter($router);
         return $front;

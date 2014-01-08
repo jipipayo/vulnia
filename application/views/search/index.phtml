@@ -1,6 +1,6 @@
 <h2><?php echo $this->total_found ?>  vulnerabilities found for "<?php  echo $this->query ?>"
 <?php
-if($_GET['page'] > 0){
+if( isset($_GET['page']) && $_GET['page'] > 0){
     echo ' - page ' . $_GET['page'];
 }
 ?>
@@ -10,9 +10,13 @@ if($_GET['page'] > 0){
 <?php
 foreach ($this->paginator as  $val):
     $val = $val[0];
-    echo  '<h5> <a href="https://web.nvd.nist.gov/view/vuln/detail?vulnId='.$val['ext-id'].' ">'. $val['ext-id'] .'</a></h5>' ;
-    echo '<h3>' . $val['summary'] . '</h3>';
-    echo '<p>' . $val['published-datetime'] . '</p><hr>';
+
+
+    echo '<div>published date:' . $val['published-datetime'] . '</div>';
+    echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
+    echo '<h3>' . $val['summary'] . '</h3></a>';
+    echo '<hr>';
+
 
 endforeach;
 
