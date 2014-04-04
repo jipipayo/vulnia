@@ -19,7 +19,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         date_default_timezone_set('Europe/Madrid');
     }
 
-
     protected function _initAutoload()
     {
         $moduleLoader = new Zend_Application_Module_Autoloader(array(
@@ -29,12 +28,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         return $moduleLoader;
     }
 
-
-    protected function _initElastica()
-    {
-        $autoloader = Zend_Loader_Autoloader::getInstance();
-        $autoloader->registerNamespace('Elastica');
-    }
 
 
     protected function _initZFDebug()
