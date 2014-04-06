@@ -73,11 +73,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH . '/controllers/helpers');
         $front = Zend_Controller_Front::getInstance();
         $router = $front->getRouter();
-        $router->removeDefaultRoutes();
+        //$router->removeDefaultRoutes();
 
 
         $routeDef = new Zend_Controller_Router_Route (
-            '/*', array(
+            '/:controller/:action/*', array(
             'controller' => 'index',
             'action' => 'index',
         ));

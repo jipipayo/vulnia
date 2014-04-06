@@ -22,8 +22,8 @@ class SearchController extends Zend_Controller_Action
         $itemsPerSphinxPage = 1000;
         $offset = 0;
         $this->cl->SetLimits($offset, $itemsPerSphinxPage, MAX_RESULTS, MAX_HITS);
-        //$resultSph = $this->cl->Query($qw, 'vulns');
-        $resultSph = $this->cl->Query('^'.$qw.'$', 'vulns');
+        $resultSph = $this->cl->Query($qw, 'vulns');
+        //$resultSph = $this->cl->Query('^'.$qw.'$', 'vulns');
 
 
         if($resultSph === false && $qw){
@@ -51,6 +51,7 @@ class SearchController extends Zend_Controller_Action
 
             $this->view->paginator = $paginator;
         } else {
+       //     die('no result -todo add the flashmessenger to templates');
             $this->_helper->_flashMessenger->addMessage($this->view->translate('Sorry, no results for search:') . ' <b>"' . $qw. '"</b>');
             $this->_redirect('/' , array('code' => 301));
         }
