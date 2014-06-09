@@ -5,6 +5,12 @@ class SearchController extends Zend_Controller_Action
 {
 
 
+    public function init()
+    {
+        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
+    }
+
+
     public function indexAction()
     {
         $page = $this->_request->getParam('page');
@@ -52,7 +58,7 @@ class SearchController extends Zend_Controller_Action
             $this->view->paginator = $paginator;
         } else {
        //     die('no result -todo add the flashmessenger to templates');
-            $this->_helper->_flashMessenger->addMessage($this->view->translate('Sorry, no results for search:') . ' <b>"' . $qw. '"</b>');
+            $this->_helper->_flashMessenger->addMessage(array('error' => 'Sorry, no results for search: <b>'. $qw . '</b>'  ));
             $this->_redirect('/' , array('code' => 301));
         }
 

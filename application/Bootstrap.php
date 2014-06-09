@@ -70,7 +70,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     protected function _initFront()
     {
-        Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH . '/controllers/helpers');
+        Zend_Controller_Action_HelperBroker::addPath( APPLICATION_PATH . '/controllers/helpers');
         $front = Zend_Controller_Front::getInstance();
         $router = $front->getRouter();
         //$router->removeDefaultRoutes();

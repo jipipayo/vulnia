@@ -1,8 +1,15 @@
 <h2>Last indexed vulnerabilities:</h2>
 <?php
+
+function truncate($string, $width, $etc = ' ..')
+{
+        $wrapped = explode('$trun$', wordwrap($string, $width, '$trun$', false), 2);
+            return $wrapped[0] . (isset($wrapped[1]) ? $etc : '');
+}
+
 foreach ($this->paginator as $val):
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
-    echo '<h3>' . $val['summary'] . '</h3></a>';
+    echo '<h3>' . $val['ext-id'] . ' - '  . truncate( $val['summary'], 90 ) . '</h3></a>';
     echo '<p>' . $val['published-datetime'] . '</p><hr>';
 
 endforeach;

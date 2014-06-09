@@ -29,7 +29,19 @@
 
     <!-- Begin page content -->
     <div class="container">
-        <?php echo $this->layout()->content; ?>
+
+
+<?php
+if (isset ( $this->mensajes[0]['error'] )) { ?>
+
+<div class="alert alert-danger">
+  <?php echo  $this->mensajes[0]['error'] ?>
+</div>
+<?php }
+?>
+
+
+    <?php echo $this->layout()->content; ?>
     </div>
 </div>
 
