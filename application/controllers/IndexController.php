@@ -13,6 +13,7 @@ class IndexController extends Zend_Controller_Action
     {
 
         $this->view->title = 'search and find all the software security vulnerabilities';
+        $this->view->metadescription = 'search and find all the software security vulnerabilities';
 
         $cve = new Model_Vuln();
 
@@ -26,7 +27,7 @@ class IndexController extends Zend_Controller_Action
 
         $paginator->setCurrentPageNumber($page);
         $this->view->paginator = $paginator;
-
+        $this->view->ishome = true;
 
     }
 

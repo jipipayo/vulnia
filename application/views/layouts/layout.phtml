@@ -15,10 +15,14 @@
                 <a class="navbar-brand" href="/">vulnia.com</a>
             </div>
             <div class="collapse navbar-collapse">
-                <?php echo new Form_Search(); ?>
+                <?php
+                    if($this->ishome != true){
+                        echo new Form_Search();
+                    }
+                    ?>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">About</a></li>
+                    <li><a href="/user/login">Login</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
 
@@ -27,21 +31,18 @@
         </div>
     </div>
 
-    <!-- Begin page content -->
     <div class="container">
+        <?php
+        if (isset ( $this->mensajes[0]['error'] )) { ?>
+
+        <div class="alert alert-danger">
+          <?php echo  $this->mensajes[0]['error'] ?>
+        </div>
+        <?php }
+        ?>
 
 
-<?php
-if (isset ( $this->mensajes[0]['error'] )) { ?>
-
-<div class="alert alert-danger">
-  <?php echo  $this->mensajes[0]['error'] ?>
-</div>
-<?php }
-?>
-
-
-    <?php echo $this->layout()->content; ?>
+        <?php echo $this->layout()->content; ?>
     </div>
 </div>
 
