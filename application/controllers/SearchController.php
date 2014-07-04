@@ -14,7 +14,7 @@ class SearchController extends Zend_Controller_Action
     public function indexAction()
     {
         $page = $this->_request->getParam('page');
-        $this->view->query = $qw = stripcslashes(strip_tags( $this->_getParam('q') ));
+        $this->view->query = $qw = stripcslashes(strip_tags( $this->_getParam('vulnerabilities') ));
 
 
         $this->cl = new SphinxClient();
@@ -25,7 +25,7 @@ class SearchController extends Zend_Controller_Action
         $this->cl->SetMaxQueryTime(1000);
 
 
-        $itemsPerSphinxPage = 1000;
+        $itemsPerSphinxPage = 100;
         $offset = 0;
         $this->cl->SetLimits($offset, $itemsPerSphinxPage, MAX_RESULTS, MAX_HITS);
         $resultSph = $this->cl->Query($qw, 'vulns');

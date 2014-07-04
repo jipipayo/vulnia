@@ -7,8 +7,8 @@ class Form_Search extends Zend_Form
 
     public function init()
     {
-        if (isset($_GET['q'])) {
-            $this->q = trim(stripcslashes(strip_tags($_GET['q'])));
+        if (isset($_REQUEST['vulnerabilities'])) {
+            $this->q = trim(stripcslashes(strip_tags($_REQUEST['vulnerabilities'])));
         };
 
         $this->setAction('/search');
@@ -17,7 +17,7 @@ class Form_Search extends Zend_Form
 
 
         $this->addElement(
-            'text', 'q',
+            'text', 'vulnerabilities',
 
             array('value' => $this->q,
                 'class' => 'form-control ',
