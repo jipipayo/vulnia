@@ -16,21 +16,18 @@ class SearchController extends Zend_Controller_Action
         $page = $this->_request->getParam('page');
         $this->view->query = $qw = stripcslashes(strip_tags( $this->_getParam('vulnerabilities') ));
 
-
         $this->cl = new SphinxClient();
         $this->cl->SetServer('127.0.0.1', 3312);
         $this->cl->SetMatchMode(SPH_MATCH_EXTENDED2);
-        $this->cl->SetRankingMode(SPH_RANK_PROXIMITY);
+        //$this->cl->SetRankingMode(SPH_RANK_PROXIMITY);
         $this->cl->SetSortMode(SPH_SORT_EXTENDED, "@id DESC");
         $this->cl->SetMaxQueryTime(1000);
 
 
-        $itemsPerSphinxPage = 100;
+        $itemsPerSphinxPage = 10000;
         $offset = 0;
-        $this->cl->SetLimits($offset, $itemsPerSphinxPage, MAX_RESULTS, MAX_HITS);
+        $this->cl->SetLimits($offset, $itemsPerSphinxPage);
         $resultSph = $this->cl->Query($qw, 'vulns');
-        //$resultSph = $this->cl->Query('^'.$qw.'$', 'vulns');
-
 
         if($resultSph === false && $qw){
             die('search engine down');

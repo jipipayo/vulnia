@@ -77,7 +77,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 
         $routeDef = new Zend_Controller_Router_Route (
-            '/*', array(
+            ':controller/:action/*', array(
             'controller' => 'index',
             'action' => 'index',
         ));
