@@ -73,11 +73,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Controller_Action_HelperBroker::addPath( APPLICATION_PATH . '/controllers/helpers');
         $front = Zend_Controller_Front::getInstance();
         $router = $front->getRouter();
-        //$router->removeDefaultRoutes();
-
+        $router->removeDefaultRoutes();
 
         $routeDef = new Zend_Controller_Router_Route (
             ':controller/:action/*', array(
+            'controller' => 'index',
+            'action' => 'index',
+        ));
+        $routeIndex = new Zend_Controller_Router_Route (
+            '/lastindexed/*', array(
             'controller' => 'index',
             'action' => 'index',
         ));
@@ -95,6 +99,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         ));
 
         $router->addRoute('default', $routeDef); //important, put the default route first!
+        $router->addRoute('index', $routeIndex);
         $router->addRoute('search', $routeSearch);
         $router->addRoute('vuln', $routeVuln);
 
