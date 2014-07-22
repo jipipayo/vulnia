@@ -4,7 +4,6 @@ require_once(APPLICATION_PATH . '../../library/Sphinx/sphinxapi.php');
 class SearchController extends Zend_Controller_Action
 {
 
-
     public function init()
     {
         $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
@@ -19,10 +18,8 @@ class SearchController extends Zend_Controller_Action
         $this->cl = new SphinxClient();
         $this->cl->SetServer('127.0.0.1', 3312);
         $this->cl->SetMatchMode(SPH_MATCH_EXTENDED2);
-        //$this->cl->SetRankingMode(SPH_RANK_PROXIMITY);
         $this->cl->SetSortMode(SPH_SORT_EXTENDED, "@id DESC");
         $this->cl->SetMaxQueryTime(1000);
-
 
         $itemsPerSphinxPage = 10000;
         $offset = 0;

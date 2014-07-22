@@ -9,9 +9,9 @@ if( isset($_GET['page']) && $_GET['page'] > 0){
 <br>
 <?php
 foreach ($this->paginator as  $val):
-    $val = $val[0];
+    //$val = $val[0];
 
-
+    $val['summary'] = str_ireplace($this->query, '<b>'. $this->query  .'</b>', $val['summary']);
     echo '<div>published date:' . $val['published-datetime'] . '</div>';
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
     echo '<h3>' . $val['summary'] . '</h3></a>';

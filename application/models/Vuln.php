@@ -14,6 +14,6 @@ class Model_Vuln extends Zend_Db_Table_Abstract {
     public function getVulnById($id){
         $id = (int)$id;
         $query = "SELECT * FROM vulns WHERE id= " . $id;
-        return $this->table->getAdapter()->query($query)->fetchAll();
+        return $this->table->getAdapter()->query($query)->fetch();
     }
 }
