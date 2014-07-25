@@ -1,0 +1,2 @@
+*.log
+/kettle/nvdcve/*.xml
