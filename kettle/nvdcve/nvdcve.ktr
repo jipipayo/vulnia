@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#47;</directory>
+    <directory>&#x2f;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,6 +33,11 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -61,9 +66,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2013&#47;11&#47;28 19:52:42.229</created_date>
+  <created_date>2013&#x2f;11&#x2f;28 19&#x3a;52&#x3a;42.229</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2013&#47;11&#47;28 19:52:42.229</modified_date>
+  <modified_date>2013&#x2f;11&#x2f;28 19&#x3a;52&#x3a;42.229</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -93,31 +98,49 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Filter rows</from><to>drop</to><enabled>Y</enabled> </hop>  <hop> <from>Get data from XML</from><to>Filter rows</to><enabled>Y</enabled> </hop>  <hop> <from>Filter rows</from><to>Insert &#47; Update</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Filter rows</from><to>drop</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get data from XML 2</from><to>foreach xml entries</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get data from XML</from><to>drop 3</to><enabled>N</enabled> </hop>
+  <hop> <from>foreach xml entries</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  </order>
   <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
 <send_true_to>drop</send_true_to>
-<send_false_to>Insert &#47; Update</send_false_to>
+<send_false_to>Insert &#x2f; Update</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>cve-id</leftvalue>
- <function>IS NULL</function>
- <rightvalue/>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>cve-id</leftvalue>
+   <function>IS NULL</function>
+   <rightvalue/>
+   </condition>
+  <condition>
+   <negated>N</negated>
+   <operator>OR</operator>
+   <leftvalue>cve-id</leftvalue>
+   <function>&#x3d;</function>
+   <rightvalue/>
+   <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask/></value>   </condition>
+  </conditions>
  </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>525</xloc>
-      <yloc>310</yloc>
+      <xloc>551</xloc>
+      <yloc>297</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -127,6 +150,7 @@
     <type>getXMLData</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -146,8 +170,8 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>${Internal.Transformation.Filename.Directory}&#47;tmp&#47;</name>
-      <filemask>.*.xml</filemask>
+      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;tmp&#x2f;</name>
+      <filemask>.&#x2a;.xml</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
@@ -155,7 +179,7 @@
     <fields>
       <field>
         <name>fact-ref</name>
-        <xpath>vuln:vulnerable-configuration&#47;cpe-lang:logical-test&#47;cpe-lang:fact-ref</xpath>
+        <xpath>vuln&#x3a;vulnerable-configuration&#x2f;cpe-lang&#x3a;logical-test&#x2f;cpe-lang&#x3a;fact-ref</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -169,10 +193,10 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>vulnerable-configuration</name>
-        <xpath>vuln:vulnerable-configuration</xpath>
+        <name>vulnerable_configuration</name>
+        <xpath>vuln&#x3a;vulnerable-configuration</xpath>
         <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <result_type>singlenode</result_type>
         <type>String</type>
         <format/>
         <currency/>
@@ -184,10 +208,10 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>product</name>
-        <xpath>vuln:vulnerable-software-list&#47;vuln:product</xpath>
+        <name>vulnerable_software</name>
+        <xpath>vuln&#x3a;vulnerable-software-list&#x2f;vuln&#x3a;product</xpath>
         <element_type>node</element_type>
-        <result_type>valueof</result_type>
+        <result_type>singlenode</result_type>
         <type>String</type>
         <format/>
         <currency/>
@@ -200,7 +224,7 @@
       </field>
       <field>
         <name>cve-id</name>
-        <xpath>vuln:cve-id</xpath>
+        <xpath>vuln&#x3a;cve-id</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -215,7 +239,7 @@
       </field>
       <field>
         <name>published-datetime</name>
-        <xpath>vuln:published-datetime</xpath>
+        <xpath>vuln&#x3a;published-datetime</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -230,7 +254,7 @@
       </field>
       <field>
         <name>last-modified-datetime</name>
-        <xpath>vuln:last-modified-datetime</xpath>
+        <xpath>vuln&#x3a;last-modified-datetime</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -245,7 +269,7 @@
       </field>
       <field>
         <name>score</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:score</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;score</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>Number</type>
@@ -260,7 +284,7 @@
       </field>
       <field>
         <name>access-vector</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:access-vector</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;access-vector</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -275,7 +299,7 @@
       </field>
       <field>
         <name>access-complexity</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:access-complexity</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;access-complexity</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -290,7 +314,7 @@
       </field>
       <field>
         <name>authentication</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:authentication</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;authentication</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -305,7 +329,7 @@
       </field>
       <field>
         <name>confidentiality-impact</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:confidentiality-impact</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;confidentiality-impact</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -320,7 +344,7 @@
       </field>
       <field>
         <name>integrity-impact</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:integrity-impact</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;integrity-impact</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -335,7 +359,7 @@
       </field>
       <field>
         <name>availability-impact</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:availability-impact</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;availability-impact</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -350,7 +374,7 @@
       </field>
       <field>
         <name>source</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:source</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;source</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -365,7 +389,7 @@
       </field>
       <field>
         <name>generated-on-datetime</name>
-        <xpath>vuln:cvss&#47;cvss:base_metrics&#47;cvss:generated-on-datetime</xpath>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;generated-on-datetime</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -380,7 +404,7 @@
       </field>
       <field>
         <name>cvss</name>
-        <xpath>vuln:cvss</xpath>
+        <xpath>vuln&#x3a;cvss</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -395,7 +419,7 @@
       </field>
       <field>
         <name>cwe</name>
-        <xpath>vuln:cwe</xpath>
+        <xpath>vuln&#x3a;cwe</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -410,7 +434,7 @@
       </field>
       <field>
         <name>source</name>
-        <xpath>vuln:references&#47;vuln:source</xpath>
+        <xpath>vuln&#x3a;references&#x2f;vuln&#x3a;source</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -425,7 +449,7 @@
       </field>
       <field>
         <name>reference</name>
-        <xpath>vuln:references&#47;vuln:reference</xpath>
+        <xpath>vuln&#x3a;references&#x2f;vuln&#x3a;reference</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -440,7 +464,7 @@
       </field>
       <field>
         <name>summary</name>
-        <xpath>vuln:summary</xpath>
+        <xpath>vuln&#x3a;summary</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -455,7 +479,7 @@
       </field>
       <field>
         <name>security-protection</name>
-        <xpath>vuln:security-protection</xpath>
+        <xpath>vuln&#x3a;security-protection</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -470,7 +494,7 @@
       </field>
       <field>
         <name>definition</name>
-        <xpath>vuln:scanner&#47;vuln:definition</xpath>
+        <xpath>vuln&#x3a;scanner&#x2f;vuln&#x3a;definition</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -485,7 +509,7 @@
       </field>
       <field>
         <name>assessment_check</name>
-        <xpath>vuln:assessment_check</xpath>
+        <xpath>vuln&#x3a;assessment_check</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -500,7 +524,7 @@
       </field>
       <field>
         <name>fact-ref</name>
-        <xpath>vuln:vulnerable-configuration&#47;cpe-lang:logical-test&#47;cpe-lang:logical-test&#47;cpe-lang:fact-ref</xpath>
+        <xpath>vuln&#x3a;vulnerable-configuration&#x2f;cpe-lang&#x3a;logical-test&#x2f;cpe-lang&#x3a;logical-test&#x2f;cpe-lang&#x3a;fact-ref</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -515,7 +539,7 @@
       </field>
       <field>
         <name>logical-test</name>
-        <xpath>vuln:vulnerable-configuration&#47;cpe-lang:logical-test</xpath>
+        <xpath>vuln&#x3a;vulnerable-configuration&#x2f;cpe-lang&#x3a;logical-test</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -530,7 +554,7 @@
       </field>
       <field>
         <name>discovered-datetime</name>
-        <xpath>vuln:discovered-datetime</xpath>
+        <xpath>vuln&#x3a;discovered-datetime</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -545,7 +569,7 @@
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>&#47;*[name()=&apos;nvd&apos;]&#47;*[name()=&apos;entry&apos;]</loopxpath>
+    <loopxpath>&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;nvd&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;entry&#x27;&#x5d;</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField/>
@@ -560,17 +584,268 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>215</xloc>
-      <yloc>310</yloc>
+      <xloc>185</xloc>
+      <yloc>442</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Insert &#47; Update</name>
+    <name>Get data from XML 2</name>
+    <type>getXMLData</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <addresultfile>N</addresultfile>
+    <namespaceaware>N</namespaceaware>
+    <ignorecomments>N</ignorecomments>
+    <readurl>N</readurl>
+    <validating>N</validating>
+    <usetoken>N</usetoken>
+    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
+    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
+    <rownum_field/>
+    <encoding>UTF-8</encoding>
+    <file>
+      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;tmp&#x2f;</name>
+      <filemask>.&#x2a;.xml</filemask>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>entry</name>
+        <xpath>.</xpath>
+        <element_type>node</element_type>
+        <result_type>singlenode</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>cve-id</name>
+        <xpath>vuln&#x3a;cve-id</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>vulnerable_software</name>
+        <xpath>vuln&#x3a;vulnerable-software-list</xpath>
+        <element_type>node</element_type>
+        <result_type>singlenode</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>score</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;score</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>published-datetime</name>
+        <xpath>vuln&#x3a;published-datetime</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>last-modified-datetime</name>
+        <xpath>vuln&#x3a;last-modified-datetime</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>access_vector</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;access-vector</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>access_complexity</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;access-complexity</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>authentication</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;authentication</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>confidentiality_impact</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;confidentiality-impact</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>integrity_impact</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;integrity-impact</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>availability_impact</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;availability-impact</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>source</name>
+        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;source</xpath>
+        <element_type>node</element_type>
+        <result_type>valueof</result_type>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <loopxpath>&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;nvd&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;entry&#x27;&#x5d;</loopxpath>
+    <IsInFields>N</IsInFields>
+    <IsAFile>N</IsAFile>
+    <XmlField/>
+    <prunePath/>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>191</xloc>
+      <yloc>296</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insert &#x2f; Update</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -585,7 +860,7 @@
       <key>
         <name>cve-id</name>
         <field>ext-id</field>
-        <condition>=</condition>
+        <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
@@ -614,15 +889,15 @@
         <update>Y</update>
       </value>
       <value>
-        <name>definition</name>
-        <rename>definition</rename>
+        <name>references</name>
+        <rename>references</rename>
         <update>Y</update>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>651</xloc>
-      <yloc>450</yloc>
+      <xloc>695</xloc>
+      <yloc>381</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -632,6 +907,7 @@
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -639,15 +915,83 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>647</xloc>
-      <yloc>250</yloc>
+      <xloc>693</xloc>
+      <yloc>235</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>drop 3</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>321</xloc>
+      <yloc>441</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>foreach xml entries</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#xa;&#x2f;&#x2a;&#xa;&#x3c;entry xmlns&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;feed&#x2f;vulnerability&#x2f;2.0&#x22; id&#x3d;&#x22;CVE-2014-0001&#x22;&#x3e;&#xa;    &#x3c;vuln&#x3a;vulnerable-configuration xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; id&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;www.nist.gov&#x2f;&#x22;&#x3e;&#xa;      &#x3c;cpe-lang&#x3a;logical-test xmlns&#x3a;cpe-lang&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;cpe.mitre.org&#x2f;language&#x2f;2.0&#x22; negate&#x3d;&#x22;false&#x22; operator&#x3d;&#x22;OR&#x22;&#x3e;&#xa;        &#x3c;cpe-lang&#x3a;fact-ref name&#x3d;&#x22;cpe&#x3a;&#x2f;a&#x3a;oracle&#x3a;mysql&#x3a;-&#x22;&#x2f;&#x3e;&#xa;        &#x3c;cpe-lang&#x3a;fact-ref name&#x3d;&#x22;cpe&#x3a;&#x2f;a&#x3a;mariadb&#x3a;mariadb&#x3a;5.5.34&#x22;&#x2f;&#x3e;&#xa;      &#x3c;&#x2f;cpe-lang&#x3a;logical-test&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;vulnerable-configuration&#x3e;&#xa;    &#x3c;vuln&#x3a;vulnerable-software-list xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;product&#x3e;cpe&#x3a;&#x2f;a&#x3a;oracle&#x3a;mysql&#x3a;-&#x3c;&#x2f;vuln&#x3a;product&#x3e;&#xa;      &#x3c;vuln&#x3a;product&#x3e;cpe&#x3a;&#x2f;a&#x3a;mariadb&#x3a;mariadb&#x3a;5.5.34&#x3c;&#x2f;vuln&#x3a;product&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;vulnerable-software-list&#x3e;&#xa;    &#x3c;vuln&#x3a;cve-id xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22;&#x3e;CVE-2014-0001&#x3c;&#x2f;vuln&#x3a;cve-id&#x3e;&#xa;    &#x3c;vuln&#x3a;published-datetime xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22;&#x3e;2014-01-31T18&#x3a;55&#x3a;04.503-05&#x3a;00&#x3c;&#x2f;vuln&#x3a;published-datetime&#x3e;&#xa;    &#x3c;vuln&#x3a;last-modified-datetime xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22;&#x3e;2014-03-05T23&#x3a;50&#x3a;17.220-05&#x3a;00&#x3c;&#x2f;vuln&#x3a;last-modified-datetime&#x3e;&#xa;    &#x3c;vuln&#x3a;cvss xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22;&#x3e;&#xa;      &#x3c;cvss&#x3a;base_metrics xmlns&#x3a;cvss&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;cvss-v2&#x2f;0.2&#x22;&#x3e;&#xa;        &#x3c;cvss&#x3a;score&#x3e;7.5&#x3c;&#x2f;cvss&#x3a;score&#x3e;&#xa;        &#x3c;cvss&#x3a;access-vector&#x3e;NETWORK&#x3c;&#x2f;cvss&#x3a;access-vector&#x3e;&#xa;        &#x3c;cvss&#x3a;access-complexity&#x3e;LOW&#x3c;&#x2f;cvss&#x3a;access-complexity&#x3e;&#xa;        &#x3c;cvss&#x3a;authentication&#x3e;NONE&#x3c;&#x2f;cvss&#x3a;authentication&#x3e;&#xa;        &#x3c;cvss&#x3a;confidentiality-impact&#x3e;PARTIAL&#x3c;&#x2f;cvss&#x3a;confidentiality-impact&#x3e;&#xa;        &#x3c;cvss&#x3a;integrity-impact&#x3e;PARTIAL&#x3c;&#x2f;cvss&#x3a;integrity-impact&#x3e;&#xa;        &#x3c;cvss&#x3a;availability-impact&#x3e;PARTIAL&#x3c;&#x2f;cvss&#x3a;availability-impact&#x3e;&#xa;        &#x3c;cvss&#x3a;source&#x3e;http&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x3c;&#x2f;cvss&#x3a;source&#x3e;&#xa;        &#x3c;cvss&#x3a;generated-on-datetime&#x3e;2014-02-03T11&#x3a;10&#x3a;48.857-05&#x3a;00&#x3c;&#x2f;cvss&#x3a;generated-on-datetime&#x3e;&#xa;      &#x3c;&#x2f;cvss&#x3a;base_metrics&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;cvss&#x3e;&#xa;    &#x3c;vuln&#x3a;cwe xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; id&#x3d;&#x22;CWE-119&#x22;&#x2f;&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;PATCH&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;CONFIRM&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;bazaar.launchpad.net&#x2f;&#x7e;maria-captains&#x2f;maria&#x2f;5.5&#x2f;revision&#x2f;2502.565.64&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;http&#x3a;&#x2f;&#x2f;bazaar.launchpad.net&#x2f;&#x7e;maria-captains&#x2f;maria&#x2f;5.5&#x2f;revision&#x2f;2502.565.64&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;CONFIRM&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;https&#x3a;&#x2f;&#x2f;mariadb.com&#x2f;kb&#x2f;en&#x2f;mariadb-5535-changelog&#x2f;&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;https&#x3a;&#x2f;&#x2f;mariadb.com&#x2f;kb&#x2f;en&#x2f;mariadb-5535-changelog&#x2f;&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;CONFIRM&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;https&#x3a;&#x2f;&#x2f;bugzilla.redhat.com&#x2f;show_bug.cgi&#x3f;id&#x3d;1054592&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;https&#x3a;&#x2f;&#x2f;bugzilla.redhat.com&#x2f;show_bug.cgi&#x3f;id&#x3d;1054592&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;OSVDB&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;www.osvdb.org&#x2f;102714&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;102714&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;REDHAT&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;rhn.redhat.com&#x2f;errata&#x2f;RHSA-2014-0189.html&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;RHSA-2014&#x3a;0189&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;REDHAT&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;rhn.redhat.com&#x2f;errata&#x2f;RHSA-2014-0186.html&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;RHSA-2014&#x3a;0186&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;REDHAT&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;rhn.redhat.com&#x2f;errata&#x2f;RHSA-2014-0173.html&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;RHSA-2014&#x3a;0173&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;REDHAT&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;rhn.redhat.com&#x2f;errata&#x2f;RHSA-2014-0164.html&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;RHSA-2014&#x3a;0164&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;references xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22; reference_type&#x3d;&#x22;UNKNOWN&#x22;&#x3e;&#xa;      &#x3c;vuln&#x3a;source&#x3e;OSVDB&#x3c;&#x2f;vuln&#x3a;source&#x3e;&#xa;      &#x3c;vuln&#x3a;reference href&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;osvdb.org&#x2f;102713&#x22; xml&#x3a;lang&#x3d;&#x22;en&#x22;&#x3e;102713&#x3c;&#x2f;vuln&#x3a;reference&#x3e;&#xa;    &#x3c;&#x2f;vuln&#x3a;references&#x3e;&#xa;    &#x3c;vuln&#x3a;summary xmlns&#x3a;vuln&#x3d;&#x22;http&#x3a;&#x2f;&#x2f;scap.nist.gov&#x2f;schema&#x2f;vulnerability&#x2f;0.4&#x22;&#x3e;Buffer overflow in client&#x2f;mysql.cc in Oracle MySQL and MariaDB before 5.5.35 allows remote database servers to cause a denial of service &#x28;crash&#x29; and possibly execute arbitrary code via a long server version string.&#x3c;&#x2f;vuln&#x3a;summary&#x3e;&#xa;  &#x3c;&#x2f;entry&#x3e;&#xa;&#x2a;&#x2f;&#xa;&#xa;&#xa;var entrySource &#x3d; new XML&#x28;entry&#x29;&#x3b;&#xa;var summary &#x3d; entrySource.&#x2a;&#x3a;&#x3a;summary&#x3b;&#xa;var references &#x3d; new Array&#x28;&#x29;&#x3b;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#x2f;&#x2f;references&#xa;for &#x28;var i &#x3d; 0&#x3b; i &#x3c; entrySource.&#x2a;&#x3a;&#x3a;references.length&#x28;&#x29;&#x3b; i&#x2b;&#x2b;&#x29; &#x7b;&#xa;	references.push&#x28;entrySource.&#x2a;&#x3a;&#x3a;references&#x5b;i&#x5d;.&#x2a;&#x3a;&#x3a;reference.&#x40;href.toXMLString&#x28;&#x29;&#x29;&#x3b;&#xa;&#x7d;&#xa;&#xa;references &#x3d; references.join&#x28;&#x22;&#x7c;&#x22;&#x29;&#x3b;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>summary</name>
+        <rename>summary</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>references</name>
+        <rename>references</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>378</xloc>
+      <yloc>296</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>foreach xml entries</source_step>
+        <target_step/>
+        <is_enabled>N</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
+
 </transformation>
