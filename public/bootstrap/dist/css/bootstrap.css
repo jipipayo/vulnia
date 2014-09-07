@@ -40,7 +40,8 @@ template {
 }
 
 html {
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
+    font-family: "VT323", sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
@@ -318,13 +319,14 @@ table {
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: "VT323", sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-size: 18px;
     line-height: 1.428571429;
     color: #333333;
     background-color: #ffffff;
@@ -340,13 +342,13 @@ textarea {
 }
 
 a {
-    color: #428bca;
+    color: #961ADB;
     text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: #2a6496;
+    color: #961AAA;
     text-decoration: underline;
 }
 
@@ -499,7 +501,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "VT323", sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-weight: 500;
     line-height: 1.1;
     color: inherit;
@@ -4686,7 +4689,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
     float: left;
     padding: 15px 15px;
-    font-size: 18px;
+    font-size: 25px;
     line-height: 20px;
 }
 
@@ -4885,12 +4888,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
+    background-color:  #A122C9;
+    border-color: #A122C9;
 }
 
 .navbar-default .navbar-brand {
-    color: #777777;
+    color: #fff;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -4900,16 +4903,16 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-text {
-    color: #777777;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #777777;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #333333;
+    color: #ddd;
     background-color: transparent;
 }
 
@@ -5201,8 +5204,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
     z-index: 2;
     color: #ffffff;
     cursor: default;
-    background-color: #428bca;
-    border-color: #428bca;
+    background-color: #961ADB;
+    border-color: #961ADB;
 }
 
 .pagination > .disabled > span,
@@ -5438,13 +5441,13 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-    padding: 30px;
+    padding: 20px;
     margin-bottom: 30px;
-    font-size: 21px;
+    font-size: 25px;
     font-weight: 200;
     line-height: 2.1428571435;
     color: inherit;
-    background-color: #eeeeee;
+    background-color: #F5E4F6;
 }
 
 .jumbotron h1 {

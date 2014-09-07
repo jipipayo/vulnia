@@ -7,6 +7,10 @@ if( isset($_GET['page']) && $_GET['page'] > 0){
 </h2>
 <! -- query search seconds: <?php echo $this->query_time ?> --->
 <br>
+
+        <div class="alert alert-info">
+          <?php echo  '<b><a href="/alert/schedule">click here </a></b>if you want to receive email alerts about <b>"' . $this->query .'"</b>'  ?>
+        </div>
 <?php
 foreach ($this->paginator as  $val):
     //$val = $val[0];
