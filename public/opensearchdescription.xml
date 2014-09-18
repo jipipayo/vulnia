@@ -1,0 +1,9 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>vulnia.com search</ShortName>
+<Description>vulnerabilities search engine</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Url type="text/html" method="GET" template="https://vulnia.com/search">
+<Param name="vulnerabilities" value="{searchTerms}"/>
+</Url>
+<SearchForm>https://vulnia/search</SearchForm>
+</OpenSearchDescription>
