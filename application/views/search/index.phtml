@@ -7,23 +7,28 @@ if( isset($_GET['page']) && $_GET['page'] > 0){
 </h2>
 <! -- query search seconds: <?php echo $this->query_time ?> --->
 <br>
-
-        <div class="alert alert-info">
-          <?php echo  '<b><a href="/alert/schedule">click here </a></b>if you want to receive email alerts about <b>"' . $this->query .'"</b>'  ?>
-        </div>
+          <?php echo
+       '<a  id="sticker_alerts" type="button" class="btn btn-default btn-lg" href="/alert">
+          <span class="glyphicon glyphicon-bell"></span> Click here if you want to receive <b>'.$this->query.'</b> security email alerts.
+          </a><br><br>';
+?>
 <?php
 foreach ($this->paginator as  $val):
-    //$val = $val[0];
-
     $val['summary'] = str_ireplace($this->query, '<b>'. $this->query  .'</b>', $val['summary']);
     echo '<div>published date:' . $val['published-datetime'] . '</div>';
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
     echo '<h3>' . $val['summary'] . '</h3></a>';
     echo '<hr>';
-
-
 endforeach;
 
 echo $this->paginationControl($this->paginator,'Elastic', 'partials/paginator_search.phtml');
 
+?>
 
+<script>
+  $(document).ready(function(){
+    $("#sticker_alerts").sticky({topSpacing:45});
+  });
+</script>
+  })
+</script>
