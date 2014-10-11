@@ -6,7 +6,8 @@ class SearchController extends Zend_Controller_Action
 
     public function init()
     {
-        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
+        //$this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
+        $this->notifications = $this->_helper->Notifications;
     }
 
 

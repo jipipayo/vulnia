@@ -8,28 +8,12 @@ class UserController extends Zend_Controller_Action
     {
 
         $this->view->identity = Zend_Auth::getInstance()->getIdentity();
-        //check if user is locked
-        //$locked = $this->_helper->checkLockedUser->check();
-        //if ($locked == 1) {
-          //  $this->_redirect('/' . $this->view->lang . '/user/logout');
-        //}
 
         $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
         $this->view->mensajes = $this->_flashMessenger->getMessages();
 
     }
 
-
-    public function indexAction()
-    {
-        //if the user is logged already redir to user account
-        $auth = Zend_Auth::getInstance();
-        if ($auth->hasIdentity()) {
-
-            //Zend_Auth::getInstance()->clearIdentity();
-            $this->_redirect('/user/profile');
-        }
-    }
 
 
     public function registerAction()
