@@ -8,9 +8,7 @@ class UserController extends Zend_Controller_Action
     {
 
         $this->view->identity = Zend_Auth::getInstance()->getIdentity();
-
-        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
-        $this->view->mensajes = $this->_flashMessenger->getMessages();
+        $this->notifications = $this->_helper->Notifications;
 
     }
 
