@@ -6,7 +6,6 @@ class SearchController extends Zend_Controller_Action
 
     public function init()
     {
-        //$this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
         $this->notifications = $this->_helper->Notifications;
     }
 
@@ -15,6 +14,12 @@ class SearchController extends Zend_Controller_Action
     {
         $page = $this->_request->getParam('page');
         $this->view->query = $qw = stripcslashes(strip_tags( $this->_getParam('vulnerabilities') ));
+
+
+        //keep this query search in zend session to redir after login
+        $aNamespace = new Zend_Session_Namespace('Vulnia');
+        $aNamespace->lastquery = $this->_request->getParam('vulnerabilities');
+
 
         $this->cl = new SphinxClient();
         $this->cl->SetServer('127.0.0.1', 3312);

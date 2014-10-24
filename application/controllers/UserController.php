@@ -321,7 +321,7 @@ class UserController extends Zend_Controller_Action
     {
         $this->view->page_title .= 'Login';
 
-        //if the user is logged already redir to home
+        //if the user is logged already redir to home or sesion url redir
         $auth = Zend_Auth::getInstance();
         if ($auth->hasIdentity()) {
             $this->_redirect('/user/profile');
@@ -386,9 +386,8 @@ class UserController extends Zend_Controller_Action
                         Zend_Session::ForgetMe();
                     }
 
-
                     //check the redir value if setted
-                    $aNamespace = new Zend_Session_Namespace('vulnia');
+                    $aNamespace = new Zend_Session_Namespace('Vulnia');
                     $redir = $aNamespace->redir;
 
                     if ($redir !== null) {
