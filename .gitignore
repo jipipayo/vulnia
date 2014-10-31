@@ -1,2 +1,4 @@
 *.log
 /kettle/nvdcve/*.xml
+
+/vendor/

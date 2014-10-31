@@ -1,0 +1,13 @@
+{
+    "name": "dani/vulnia",
+    "require": {
+        "zendframework/zendframework1": "1.*",
+        "chrisboulton/php-resque-scheduler": "1.*"
+    },
+    "authors": [
+        {
+            "name": "Dani Remeseiro",
+            "email": "daniel.remeseiro@gmail.com"
+        }
+    ]
+}
