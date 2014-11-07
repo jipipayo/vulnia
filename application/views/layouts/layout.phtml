@@ -1,8 +1,6 @@
 <?php include_once("header_common.phtml"); ?>
-
 <body>
 <div id="wrap">
-    <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -22,7 +20,16 @@
                     ?>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/user/login">Login</a></li>
+
+                <?php
+                 $auth = Zend_Auth::getInstance();
+                 if(!$auth->hasIdentity()){
+                    echo '<li><a href="/user/login">Login</a></li>';
+                 } else {
+                    echo '<li><a href="/user/profile">Logged as '. $auth->getIdentity()->username  .'</a></li>';
+                    echo '<li><a href="/user/logout">Logout</a></li>';
+                 }
+                ?>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
 

@@ -5,7 +5,7 @@ class Model_Alert
 
     public function init()
     {
-        $this->table =  new Zend_Db_Table('vulns');
+        $this->table =  new Zend_Db_Table('alerts');
     }
 
     public function save(array $data)
