@@ -1,12 +1,10 @@
 <?php
-
-class Model_Alert
+class Model_Alert extends Zend_Db_Table_Abstract
 {
-
-    public function init()
-    {
-        $this->table =  new Zend_Db_Table('alerts');
+    public function init(){
+        $this->table = new Zend_Db_Table('alerts');
     }
+
 
     public function save(array $data)
     {
@@ -28,7 +26,7 @@ class Model_Alert
 
 
 
-    public function fetchAlert($id)
+    public function fetchAlertById(string $id)
     {
         $select = $this->table->select()->where('id = ?', (int)$id);
 
@@ -37,12 +35,24 @@ class Model_Alert
         } else {
             $result = null;
         }
-
         return $result;
     }
 
+    public function fetchAlertByQueryAndUserId( int $userid, string $query)
+    {
+        $select = $this->table->select()
+                              ->where('user_id_owner = ?', $userid)
+                              ->where('query = ?', $query);
 
-    public function deleteAlert($id)
+        if ($select != null) {
+            $result = $this->table->fetchRow($select);
+        } else {
+            $result = null;
+        }
+        return $result;
+    }
+
+    public function deleteAlert(int $id)
     {
         $this->table->delete('id =' . (int)$id);
     }
