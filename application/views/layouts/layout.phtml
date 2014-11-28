@@ -20,7 +20,6 @@
                     ?>
 
                 <ul class="nav navbar-nav navbar-right">
-
                 <?php
                  $auth = Zend_Auth::getInstance();
                  if(!$auth->hasIdentity()){
@@ -40,10 +39,9 @@
 
     <div class="container">
         <?php
-        if (isset ( $this->mensajes[0]['error'] )) { ?>
-
-        <div class="alert alert-danger">
-          <?php echo  $this->mensajes[0]['error'] ?>
+        if (isset ( $this->mensajes[0] )) { ?>
+        <div class="alert alert-<?php echo key($this->mensajes[0])  ?>">
+          <?php echo  $this->mensajes[0][key($this->mensajes[0])] ?>
         </div>
         <?php }
         ?>

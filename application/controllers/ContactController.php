@@ -3,6 +3,10 @@
 class ContactController extends Zend_Controller_Action
 {
 
+    public function init()
+    {
+        $this->notifications = $this->_helper->Notifications;
+    }
 
     public function indexAction()
     {
@@ -30,7 +34,7 @@ class ContactController extends Zend_Controller_Action
                 $mail->setSubject('vulnia.com - contact  from ' . $email);
                 $mail->send();
 
-                $this->_helper->_flashMessenger->addMessage($this->view->translate('Message sent successfully!'));
+                $this->_helper->_flashMessenger->addMessage(array('info' => 'Message sent successfully!'));
                 $this->_redirect('/');
 
             }

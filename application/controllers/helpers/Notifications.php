@@ -3,11 +3,6 @@
 class Zend_Controller_Action_Helper_Notifications extends Zend_Controller_Action_Helper_Abstract {
 
     function postDispatch() {
-
-#        $auth = Zend_Auth::getInstance ();
-
-#        if ($auth->hasIdentity()) {
-
             $flashnotices = $this->getActionController()->getHelper('flashMessenger');
             $allnotices = $flashnotices->getMessages ();
             if ( $flashnotices->hasCurrentMessages () ) {
@@ -17,7 +12,6 @@ class Zend_Controller_Action_Helper_Notifications extends Zend_Controller_Action
             }
             $view = $this->getActionController()->view;
             $view->mensajes = $allnotices;
-#        }
     }
 }
 

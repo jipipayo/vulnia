@@ -6,10 +6,8 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-
         $this->view->identity = Zend_Auth::getInstance()->getIdentity();
         $this->notifications = $this->_helper->Notifications;
-
     }
 
 
@@ -36,7 +34,7 @@ class UserController extends Zend_Controller_Action
                 $checkpasswords = ($formulario['password1'] == $formulario['password2']);
 
                 if ($checkpasswords == FALSE) {
-                    $this->_helper->_flashMessenger->addMessage(array('error' => 'The passwords entered do not match.'));
+                    $this->_helper->_flashMessenger->addMessage(array('danger' => 'The passwords entered do not match.'));
                     $form->populate($form->getValues());
                     $this->_redirect('/user/register');
                     return;
@@ -46,7 +44,7 @@ class UserController extends Zend_Controller_Action
                 //check user email exists on db
                 $checkemail = $model->checkEmail($formulario ['email']);
                 if ($checkemail !== NULL) {
-                    $this->_helper->_flashMessenger->addMessage(array('error' => 'This email is taken. <a href="/user/login">Do you want to login?</a>'));
+                    $this->_helper->_flashMessenger->addMessage(array('danger' => 'This email is taken. <a href="/user/login">Do you want to login?</a>'));
                     $this->_redirect('/user/register');
                     return;
                 }
@@ -122,7 +120,7 @@ class UserController extends Zend_Controller_Action
 
 
         if ($this->view->user == null) {
-            $this->_helper->_flashMessenger->addMessage(array('error' => 'This user does not exist'));
+            $this->_helper->_flashMessenger->addMessage(array('danger' => 'This user does not exist'));
             $this->_redirect('/');
         }
 
@@ -155,7 +153,7 @@ class UserController extends Zend_Controller_Action
 
                 if ($mailcheck == NULL) {
                     // failure: email does not exists on ddbb
-                    $this->_helper->flashMessenger->addMessage(array('error' => 'This email is not in our database. Please, try again.'));
+                    $this->_helper->flashMessenger->addMessage(array('danger' => 'This email is not in our database. Please, try again.'));
                     $this->_redirect('/user/forgot');
                     return;
 
@@ -190,7 +188,7 @@ class UserController extends Zend_Controller_Action
                     $mail->setSubject(utf8_decode($this->view->translate('Reset your vulnia password')));
                     $mail->send();
 
-                    $this->_helper->_flashMessenger->addMessage(array('success' => 'Check your inbox email to reset your vulnia password.Check your spam folder also!'));
+                    $this->_helper->_flashMessenger->addMessage(array('info' => 'Check your inbox email to reset your vulnia password.Check your spam folder also!'));
                     $this->_redirect('/user/login');
                 }
             }
@@ -232,15 +230,15 @@ class UserController extends Zend_Controller_Action
                 $auth = Zend_Auth::getInstance();
                 $auth->getStorage()->write((object)$data);
 
-                $this->_helper->_flashMessenger->addMessage(array('success' => 'Welcome' . ' ' . $data['email']));
+                $this->_helper->_flashMessenger->addMessage(array('info' => 'Welcome ' . $data['username']));
                 $this->_redirect('/user/profile');
             } else {
-                $this->_helper->_flashMessenger->addMessage(array('error' => 'Sorry, url no valid or expired.'));
+                $this->_helper->_flashMessenger->addMessage(array('danger' => 'Sorry, url no valid or expired.'));
                 $this->_redirect('/user/forgot');
                 return;
             }
         } else {
-            $this->_helper->_flashMessenger->addMessage(array('error' => 'Sorry, url no valid or expired.'));
+            $this->_helper->_flashMessenger->addMessage(array('danger' => 'Sorry, url no valid or expired.'));
             $this->_redirect('/user/forgot');
             return;
         }
@@ -252,7 +250,7 @@ class UserController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
 
         if (!$auth->getIdentity()->id) {
-            $this->_helper->_flashMessenger->addMessage(array('error' => 'Session expired or you are not allowed to view this page'));
+            $this->_helper->_flashMessenger->addMessage(array('danger' => 'Session expired or you are not allowed to view this page'));
             $this->_redirect('/user/login');
             return;
         }
@@ -308,7 +306,7 @@ class UserController extends Zend_Controller_Action
                 }
             }
         } else {
-            $this->_helper->_flashMessenger->addMessage(array('error' => 'Session expired or you are not allowed to view this page'));
+            $this->_helper->_flashMessenger->addMessage(array('danger' => 'Session expired or you are not allowed to view this page'));
             $this->_redirect('/user/login');
             return;
         }
@@ -374,7 +372,7 @@ class UserController extends Zend_Controller_Action
                     $data = $authAdapter->getResultRowObject(null, 'password');
                     $auth->getStorage()->write($data);
 
-                    $this->_helper->_flashMessenger->addMessage(array('success' => 'Welcome,' . ' ' . $auth->getIdentity()->firstName));
+                    $this->_helper->_flashMessenger->addMessage(array('info' => 'Welcome,' . ' ' . $auth->getIdentity()->username));
 
                     Zend_Session::start();
                     //check if user wants to be remembered for 7 days
@@ -399,7 +397,7 @@ class UserController extends Zend_Controller_Action
                     }
                 } else {
                     // failure: wrong username
-                    $this->_helper->_flashMessenger->addMessage(array('error' => "Wrong email or password, please try again. <a href='/user/forgot'>Forgot your password?
+                    $this->_helper->_flashMessenger->addMessage(array('danger' => "Wrong email or password, please try again. <a href='/user/forgot'>Forgot your password?
                     </a>"));
                     $this->_redirect('/user/login');
                 }

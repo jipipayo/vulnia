@@ -1,9 +1,7 @@
 <?php
 
-
 class AlertController extends Zend_Controller_Action
 {
-
     private $aNamespace;
     private $notifications;
     private $auth;
@@ -18,19 +16,40 @@ class AlertController extends Zend_Controller_Action
         if (!$this->auth->hasIdentity()) {
             //keep this url in zend session to redir after login
             $this->aNamespace->redir = '/alert/create';
-            $this->_helper->_flashMessenger->addMessage(
-                array('error' => 'Please, login to schedule a new email alert about <b>'.
-               $this->aNamespace->lastquery . '</b>'  ));
             $this->_redirect('/user/login');
         }
 
     }
 
+    public function listAction(){
+        $modelAlert = new Model_Alert();
+        $user_id_owner = $this->auth->getIdentity()->id;
 
+        $this->view->alerts = $modelAlert->fetchAlertsByUserId($user_id_owner);
+    }
+
+    public function deleteAction(){
+        $modelAlert = new Model_Alert();
+        $user_id_session = $this->auth->getIdentity()->id;
+        $alert_id = $this->_request->getParam('id');
+
+        //only allow delete alert to alert user owner
+        $alert_user_id_owner = $modelAlert->fetchAlertById($alert_id)->user_id_owner;
+        if ( $alert_user_id_owner === $user_id_session  ){
+            $modelAlert->delete($alert_id);
+            $this->_helper->_flashMessenger->addMessage(
+                array('info' => 'Alert deleted successfully' ));
+            $this->_redirect('/alert/list');
+        } else {
+            $this->_helper->_flashMessenger->addMessage(
+                array('danger' => 'Sorry, you are not allowed to do that' ));
+            $this->_redirect('/');
+
+        }
+    }
 
     public function createAction()
     {
-
         require_once APPLICATION_PATH . '/forms/AlertCreate.php';
         $this->view->form = $form = new Form_AlertCreate();
         if( $this->aNamespace->lastquery ){
@@ -42,7 +61,7 @@ class AlertController extends Zend_Controller_Action
                 $formulario = $form->getValues();
             }
 
-            //Create a filter chain and add filters to title and body against xss, etc
+            //Create a filter chain and add filters to query string against xss, etc
             $f = new Zend_Filter();
             $f->addFilter(new Zend_Filter_StripTags());
             //->addFilter(new Zend_Filter_HtmlEntities());
@@ -55,19 +74,18 @@ class AlertController extends Zend_Controller_Action
             $formulario['created'] = date("Y-m-d H:i:s", time());
 
             $modelAlert = new Model_Alert();
-
-            //check first if the alert whit this user id and query word exists already!!
+            //check first if the alert with this user id and query word exists already!!
             $queryExists = $modelAlert->fetchAlertByQueryAndUserId( $formulario['user_id_owner'], $formulario['query']);
 
             if($queryExists === null){
                 $modelAlert->save($formulario);
                 $this->_helper->_flashMessenger->addMessage(
-                array('success' => 'Your alert is saved and you will receive email alerts about <b>'.$formulario['query'].'</b>'));
-                $this->_redirect('/');
+                array('info' => 'Your alert is saved and you will receive email alerts about <b>'.$formulario['query'].'</b>'));
+                $this->_redirect('/alert/list');
             } else {
                 $this->_helper->_flashMessenger->addMessage(
-                array('error' => 'Sorry, you already have an alert saved about <b>'.$formulario['query'].'</b>'));
-                $this->_redirect('/');//TODO redir to alert user list
+                array('danger' => 'Sorry, you already have an alert saved about <b>'.$formulario['query'].'</b>'));
+                $this->_redirect('/alert/list');
 
             }
 

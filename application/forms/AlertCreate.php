@@ -12,9 +12,6 @@ class Form_AlertCreate extends Zend_Form {
         'label' => 'keyword or phrase:',
         'required' => true,
         'filters' => array ('StringTrim'),
-        'validators' => array ('alnum',
-                               array ('regex', false, array ('/^[a-z]/i' )),
-                               array ('StringLength', false, array (3, 20) ) ),
         'required' => true
     ));
 

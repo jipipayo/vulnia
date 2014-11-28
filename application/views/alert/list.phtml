@@ -1,0 +1,12 @@
+<h2> You have <?php echo $this->alerts->count() ?> alerts</h2>
+<br>
+<?php
+foreach ($this->alerts as  $alert):
+    echo '<div>created date:' . $alert['created'] . '</div>';
+    echo '<h3>' . $alert['query'] . '</h3><a  id="sticker_alerts" type="button"
+    class="btn btn-default" href="/alert/delete/id/' . $alert['id'] . '">Delete this alert</a>';
+    echo '<hr>';
+endforeach;
+?>
+
+
