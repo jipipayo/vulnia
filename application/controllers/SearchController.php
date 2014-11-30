@@ -13,7 +13,7 @@ class SearchController extends Zend_Controller_Action
     public function indexAction()
     {
         $page = $this->_request->getParam('page');
-        $this->view->query = $qw = stripcslashes(strip_tags( $this->_getParam('vulnerabilities') ));
+        $this->view->query = $qw = stripcslashes(strip_tags( trim($this->_getParam('vulnerabilities')) ));
 
 
         //keep this query search in zend session to redir after login
@@ -36,7 +36,11 @@ class SearchController extends Zend_Controller_Action
             die('search engine down');
         }
 
-        if (!is_null($resultSph["matches"])) {
+        if( strlen($qw) < 3 ) {
+                $this->_helper->_flashMessenger->addMessage(
+                array('danger' => 'Sorry, <b>'.$qw.'</b> is less than 3 characters'));
+                $this->_redirect('/');
+        }elseif (!is_null($resultSph["matches"])) {
             $modelVuln = new Model_Vuln();
             foreach ($resultSph["matches"] as $doc => $docinfo) {
                 $resultzs[$doc] = $modelVuln->getVulnById($doc);
@@ -57,7 +61,8 @@ class SearchController extends Zend_Controller_Action
 
             $this->view->paginator = $paginator;
         } else {
-            $this->_helper->_flashMessenger->addMessage(array('error' => 'Sorry, no results for search: <b>'. $qw . '</b>'  ));
+            $this->_helper->_flashMessenger->addMessage(array('danger' => 'Sorry, no results for search: <b>'. $qw .
+                '</b><br>Click <a href="/alert/create">here</a> if you want to setup an email alert about <b>'.$qw.'</b>'  ));
             $this->_redirect('/' , array('code' => 301));
         }
 

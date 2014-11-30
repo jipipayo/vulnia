@@ -16,9 +16,28 @@ class Form_AlertCreate extends Zend_Form {
     ));
 
 
+    $this->addElement ( 'select', 'score', array (
+        'label' => 'score (level of importance):',
+        'required' => true,
+        'attribs' => array(  'score' => 'score'),
+        'multioptions' => array(
+                    0 => 'any',
+                    1 => '> = 1',
+                    2 => '> = 2',
+                    3 => '> = 3',
+                    4 => '> = 4',
+                    5 => '> = 5',
+                    6 => '> = 6',
+                    7 => '> = 7',
+                    8 => '> = 8',
+                    9 => '> = 9',
+
+                ),
+    ));
+
 
     // add the submit button
-    $this->addElement ( 'submit', 'submit', array ('label' => 'Save alert' ) );
+    $this->addElement ( 'submit', 'save alert', array ('label' => 'Save alert' ) );
   }
 
 }

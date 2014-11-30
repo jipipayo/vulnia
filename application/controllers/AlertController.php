@@ -63,13 +63,11 @@ class AlertController extends Zend_Controller_Action
 
             //Create a filter chain and add filters to query string against xss, etc
             $f = new Zend_Filter();
-            $f->addFilter(new Zend_Filter_StripTags());
-            //->addFilter(new Zend_Filter_HtmlEntities());
-            $formulario['query'] = $f->filter($formulario['query']);
+            $f->addFilter(new Zend_Filter_StripTags())->addFilter(new Zend_Filter_HtmlEntities());
+            $formulario['query'] = trim($f->filter($formulario['query']));
 
             //get the user owner id of this alert
             $formulario['user_id_owner'] = $this->auth->getIdentity()->id;
-            //get date created
             //TODO use the Zend Date object to fetch the user locale time zone
             $formulario['created'] = date("Y-m-d H:i:s", time());
 
@@ -77,14 +75,23 @@ class AlertController extends Zend_Controller_Action
             //check first if the alert with this user id and query word exists already!!
             $queryExists = $modelAlert->fetchAlertByQueryAndUserId( $formulario['user_id_owner'], $formulario['query']);
 
-            if($queryExists === null){
-                $modelAlert->save($formulario);
-                $this->_helper->_flashMessenger->addMessage(
-                array('info' => 'Your alert is saved and you will receive email alerts about <b>'.$formulario['query'].'</b>'));
-                $this->_redirect('/alert/list');
-            } else {
+            if($queryExists != null){
                 $this->_helper->_flashMessenger->addMessage(
                 array('danger' => 'Sorry, you already have an alert saved about <b>'.$formulario['query'].'</b>'));
+                $this->_redirect('/alert/list');
+            } else if (strlen($formulario['query']) < 3 ) {
+                $this->_helper->_flashMessenger->addMessage(
+                array('danger' => 'Sorry, <b>'.$formulario['query'].'</b> is less than 3 characters'));
+                $this->_redirect('/alert/create');
+            } else {
+                //TODO: add here api call to the cronopio scheduler
+                //use here a Rest Client (Guzzle or other library) to create a new scheduled job in cronopio
+                //if the response is ok from cronopio api then save in alert db table
+                //if not, show error msg and NOT save in db
+
+                $modelAlert->save($formulario);
+                $this->_helper->_flashMessenger->addMessage(
+                array('info' => 'Your alert is saved and you will receive email alerts about <b>"'.$formulario['query'].'"</b>'));
                 $this->_redirect('/alert/list');
 
             }
