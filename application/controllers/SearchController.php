@@ -32,9 +32,6 @@ class SearchController extends Zend_Controller_Action
         $this->cl->SetLimits($offset, $itemsPerSphinxPage);
         $resultSph = $this->cl->Query( $qw, 'vulns');
 
-        //echo '<pre>';
-        //var_dump($resultSph);
-        //echo '</pre>';
 
         if($resultSph === false && $qw){
             die('search engine down');
@@ -45,9 +42,19 @@ class SearchController extends Zend_Controller_Action
                 array('danger' => 'Sorry, <b>'.$qw.'</b> is less than 3 characters'));
                 $this->_redirect('/');
         }elseif (!is_null($resultSph["matches"])) {
+
             $modelVuln = new Model_Vuln();
+            //here we try to not do all the selects, just the selects we need to show the page
+            if(!$page){ $page = 1; }
+            $res_offset = $page * 10;
+            $res_count = 0;
             foreach ($resultSph["matches"] as $doc => $docinfo) {
-                $resultzs[$doc] = $modelVuln->getVulnById($doc);
+                $res_count++;
+                $resultzs[$doc] = null;
+                if( $res_count > $res_offset-10  &&  $res_count <= $res_offset){
+                    $resultzs[$doc] = $modelVuln->getVulnById($doc);
+                }
+
             }
 
             $this->view->query_time = $resultSph['time'];
