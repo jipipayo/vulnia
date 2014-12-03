@@ -30,7 +30,11 @@ class SearchController extends Zend_Controller_Action
         $itemsPerSphinxPage = 10000;
         $offset = 0;
         $this->cl->SetLimits($offset, $itemsPerSphinxPage);
-        $resultSph = $this->cl->Query($qw, 'vulns');
+        $resultSph = $this->cl->Query( $qw, 'vulns');
+
+        //echo '<pre>';
+        //var_dump($resultSph);
+        //echo '</pre>';
 
         if($resultSph === false && $qw){
             die('search engine down');
