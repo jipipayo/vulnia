@@ -26,7 +26,7 @@ class Model_Alert extends Zend_Db_Table_Abstract
 
 
 
-    public function fetchAlertById( int $id)
+    public function fetchAlertById( $id )
     {
         $select = $this->table->select()->where('id = ?', (int)$id);
 
@@ -38,10 +38,10 @@ class Model_Alert extends Zend_Db_Table_Abstract
         return $result;
     }
 
-    public function fetchAlertByQueryAndUserId( int $userid, string $query)
+    public function fetchAlertByQueryAndUserId( $userid, string $query)
     {
         $select = $this->table->select()
-                              ->where('user_id_owner = ?', $userid)
+                              ->where('user_id_owner = ?', (int)$userid)
                               ->where('query = ?', $query);
 
         if ($select != null) {
