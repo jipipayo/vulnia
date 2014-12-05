@@ -6,7 +6,7 @@ class Model_Alert extends Zend_Db_Table_Abstract
     }
 
 
-    public function save(array $data)
+    public function save( $data )
     {
         $fields = $this->table->info(Zend_Db_Table_Abstract::COLS);
         foreach ($data as $field => $value) {
@@ -18,7 +18,7 @@ class Model_Alert extends Zend_Db_Table_Abstract
     }
 
 
-    public function update(array $data)
+    public function update( $data )
     {
         $where = $this->table->getAdapter()->quoteInto('id= ?', (int)$data ['id']);
         $this->table->update($data, $where);
@@ -38,7 +38,7 @@ class Model_Alert extends Zend_Db_Table_Abstract
         return $result;
     }
 
-    public function fetchAlertByQueryAndUserId( $userid, string $query)
+    public function fetchAlertByQueryAndUserId( $userid, $query)
     {
         $select = $this->table->select()
                               ->where('user_id_owner = ?', (int)$userid)
