@@ -13,11 +13,24 @@ if( isset($_GET['page']) && $_GET['page'] > 0){
           </a><br><br>';
 ?>
 <?php
+
+
 foreach ($this->paginator as  $val):
+    if($val['score'] < 4 ){
+        $score_str = 'default';
+    }
+    else if($val['score'] < 7 ){
+        $score_str = 'warning';
+    }
+    else if($val['score'] > 6 ){
+        $score_str = 'danger';
+    }
+
     $val['summary'] = str_ireplace($this->query, '<b>'. $this->query  .'</b>', $val['summary']);
     echo '<div>published date:' . $val['published-datetime'] . '</div>';
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
     echo '<h3>' . $val['summary'] . '</h3></a>';
+    echo '<span class="label label-'.$score_str.'">score: ' . $val['score'] . '</span>';
     echo '<hr>';
 endforeach;
 

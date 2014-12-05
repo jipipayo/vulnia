@@ -18,9 +18,20 @@ function truncate($string, $width, $etc = ' ..')
 }
 
 foreach ($this->paginator as $val):
+    if($val['score'] < 4 ){
+        $score_str = 'default';
+    }
+    else if($val['score'] < 7 ){
+        $score_str = 'warning';
+    }
+    else if($val['score'] > 6 ){
+        $score_str = 'danger';
+    }
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
     echo '<h3>' . $val['ext-id'] . ' - '  . truncate( $val['summary'], 90 ) . '</h3></a>';
-    echo '<p>' . $val['published-datetime'] . '</p><hr>';
+    echo '<p>' . $val['published-datetime'] . '</p>';
+    echo '<span class="label label-'.$score_str.'">score: ' . $val['score'] . '</span>';
+    echo '<hr>';
 
 endforeach;
 

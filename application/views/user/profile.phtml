@@ -5,4 +5,5 @@
     <h4><?php echo $this->translate('Username:') . ' ' . $this->user['username'];?></h4>
     <h4><?php echo $this->translate('Email account:') . ' ' . $this->user['email'];?></h4>
     <h4><?php echo $this->translate('Registered date:') . ' ' . $this->escape(date($this->translate('l dS \o\f F Y H:i:s'), strtotime($this->user['created'])));?></h4>
+    <h4><?php echo $this->translate('Limit of saved alerts:') . ' ' . $this->user['alerts_limit'];?></h4>
 </div>

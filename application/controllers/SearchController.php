@@ -14,8 +14,6 @@ class SearchController extends Zend_Controller_Action
     {
         $page = $this->_request->getParam('page');
         $this->view->query = $qw = stripcslashes(strip_tags( trim($this->_getParam('vulnerabilities')) ));
-
-
         //keep this query search in zend session to redir after login
         $aNamespace = new Zend_Session_Namespace('Vulnia');
         $aNamespace->lastquery = $this->_request->getParam('vulnerabilities');
@@ -25,6 +23,7 @@ class SearchController extends Zend_Controller_Action
         $this->cl->SetServer('127.0.0.1', 3312);
         $this->cl->SetMatchMode(SPH_MATCH_EXTENDED2);
         $this->cl->SetSortMode(SPH_SORT_EXTENDED, "@id DESC");
+        //$this->cl->SetSortMode(SPH_SORT_EXTENDED, "score DESC, @id DESC");
         $this->cl->SetMaxQueryTime(1000);
 
         $itemsPerSphinxPage = 10000;
@@ -35,6 +34,11 @@ class SearchController extends Zend_Controller_Action
 
         if($resultSph === false && $qw){
             die('search engine down');
+           // echo '<pre>';
+           // var_dump($this->cl);
+           // var_dump($resultSph);
+           // echo '</pre>';
+           // die;
         }
 
         if( strlen($qw) < 3 ) {

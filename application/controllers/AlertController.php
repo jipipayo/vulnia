@@ -74,6 +74,8 @@ class AlertController extends Zend_Controller_Action
             $modelAlert = new Model_Alert();
             //check first if the alert with this user id and query word exists already!!
             $queryExists = $modelAlert->fetchAlertByQueryAndUserId( $formulario['user_id_owner'], $formulario['query']);
+            $user_alerts_count = $modelAlert->fetchAlertsByUserId($formulario['user_id_owner'])->count();
+            $user_alerts_limit = $this->auth->getIdentity()->alerts_limit;
 
             if($queryExists != null){
                 $this->_helper->_flashMessenger->addMessage(
@@ -83,6 +85,11 @@ class AlertController extends Zend_Controller_Action
                 $this->_helper->_flashMessenger->addMessage(
                 array('danger' => 'Sorry, <b>'.$formulario['query'].'</b> is less than 3 characters'));
                 $this->_redirect('/alert/create');
+            } else if ($user_alerts_count >= $this->auth->getIdentity()->alerts_limit ) {
+                $this->_helper->_flashMessenger->addMessage(
+                    array('danger' => 'Sorry, you reached the limit of '. $user_alerts_limit
+                    .' saved alerts. Please, <a href="/user/upgrade">upgrade your plan here</a>'));
+                $this->_redirect('/alert/list');
             } else {
                 //TODO: add here api call to the cronopio scheduler
                 //use here a Rest Client (Guzzle or other library) to create a new scheduled job in cronopio
