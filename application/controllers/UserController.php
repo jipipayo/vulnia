@@ -255,8 +255,6 @@ class UserController extends Zend_Controller_Action
             return;
         }
 
-        $modelCarrier = new Model_Carrier();
-        $this->view->carriers = $modelCarrier->fetchCarriers();
 
 
         $model = new Model_User();
@@ -264,7 +262,7 @@ class UserController extends Zend_Controller_Action
         $user = $model->fetchUser($id)->id;
 
         if (($auth->getIdentity()->id == $user)) { //if is the user profile owner lets edit
-            require_once APPLICATION_PATH . '/views/forms/UserEdit.php';
+            require_once APPLICATION_PATH . '/forms/UserEdit.php';
             $form = new Form_UserEdit ();
             $form->submit->setLabel('Save profile');
             $this->view->form = $form;
@@ -275,8 +273,6 @@ class UserController extends Zend_Controller_Action
                 if ($form->isValid($formData)) {
 
                     $data['id'] = $id;
-                    $data['firstName'] = $form->getValue('firstName');
-                    $data['lastName'] = $form->getValue('lastName');
 
                     if ($form->getValue('password')) {
                         $data['password'] = hash('sha256', trim($form->getValue('password')), FALSE);
@@ -287,12 +283,10 @@ class UserController extends Zend_Controller_Action
                     $auth = Zend_Auth::getInstance();
                     $auth->getStorage()->write((object)$data);
 
-
                     $this->_helper->_flashMessenger->addMessage(array('success' => 'Your profile was edited succesfully!'));
                     $this->_redirect('/user/profile');
                     return;
                 } else {
-
                     $form->populate($formData);
                 }
             } else {
@@ -342,9 +336,6 @@ class UserController extends Zend_Controller_Action
 
                 $readConf = new Zend_Config_Ini(APPLICATION_PATH . '/conf/application.ini', $env);
                 $dbAdapter = Zend_Db::factory($readConf->resources->db);
-
-                //var_dump($dbAdapter->getConfig());
-                //die;
 
                 $authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
                 $authAdapter->setTableName('users');

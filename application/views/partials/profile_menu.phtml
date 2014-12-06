@@ -1,1 +1,11 @@
-TODO: meter partial de user tab de hubship.net project
+<ul class="nav nav-tabs">
+        <li role="presentation" class="<?=(preg_match("/user\/profile/", $_SERVER['REQUEST_URI'])) ? "active" : "none"?>">
+            <a href="/user/profile"><?php echo 'Profile';?></a></li>
+
+        <li role="presentation" class="<?=(preg_match("/edit/", $_SERVER['REQUEST_URI'])) ? "active" : "none"?>">
+             <a href="/user/edit"><?php echo 'Edit profile';?></a></li>
+
+        <li role="presentation" class="<?=(preg_match("/list/", $_SERVER['REQUEST_URI'])) ? "active" : "none"?>">
+            <a href="/alert/list"><?php echo 'Your alerts';?></a></li>
+</ul>
+

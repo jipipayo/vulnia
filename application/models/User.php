@@ -6,7 +6,7 @@ class Model_User
     private $table;
 
 
-    public function save(array $data)
+    public function save( $data )
     {
         $table = new Zend_Db_Table('users');
         $fields = $table->info(Zend_Db_Table_Abstract::COLS);
@@ -19,15 +19,15 @@ class Model_User
     }
 
 
-    public function update(array $data)
+    public function update( $data )
     {
         $table = new Zend_Db_Table('users');
-        $where = $table->getAdapter()->quoteInto('id= ?', (int)$data ['id']);
+        $where = $table->getAdapter()->quoteInto('id= ?', (int)$data['id']);
         $table->update($data, $where);
 
     }
 
-    public function checkEmail($email)
+    public function checkEmail( $email )
     {
         $table = new Zend_Db_Table('users');
         $select = $table->select()->where('email = ?', $email);
@@ -35,14 +35,14 @@ class Model_User
     }
 
 
-    public function getToken($email)
+    public function getToken( $email )
     {
         $table = new Zend_Db_Table('users');
         $select = $table->select()->where('email = ?', $email);
         return $table->fetchRow($select)->token;
     }
 
-    public function isActiveByEmail($email)
+    public function isActiveByEmail( $email )
         {
             $table = new Zend_Db_Table('users');
             $select = $table->select()->where('email = ?', $email);
@@ -50,7 +50,7 @@ class Model_User
         }
 
 
-    public function validateToken($token)
+    public function validateToken( $token )
     {
         $table = new Zend_Db_Table('users');
         $select = $table->select()->where('token = ?', $token);
@@ -58,7 +58,7 @@ class Model_User
     }
 
 
-    public function checkIsLocked($id)
+    public function checkIsLocked( $id )
     {
         $table = new Zend_Db_Table('users');
         $select = $table->select()->where('id = ?', (int)$id);
@@ -66,7 +66,7 @@ class Model_User
     }
 
 
-    public function checkLockedUser($id)
+    public function checkLockedUser( $id )
     {
         $table = new Zend_Db_Table('users');
         $select = $table->select('locked')->where('id = ?', (int)$id);
@@ -74,14 +74,14 @@ class Model_User
     }
 
 
-    public function fetchUser($id)
+    public function fetchUser( $id )
     {
         $table = new Zend_Db_Table('users');
         $select = $table->select()->where('id = ?', (int)$id);
 
         if ($select != null) {
             $result = $table->fetchRow($select);
-            //do not return password and token ever!
+            //do not return password and token never!
             unset($result['password']);
             unset($result['token']);
         } else {
@@ -92,7 +92,7 @@ class Model_User
     }
 
 
-    public function deleteUser($id)
+    public function deleteUser( $id )
     {
         $table = new Zend_Db_Table('users');
         $table->delete('id =' . (int)$id);
