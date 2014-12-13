@@ -1,35 +1,39 @@
 <?php if ($this->pageCount > 1):
     $query = trim(stripcslashes(strip_tags($_GET['vulnerabilities'])));
-    ?>
 
+    if ( isset($_GET['score'])){
+        $score = trim((int)$_GET['score']);
+    } else {
+        $score = 0;
+    }
+?>
+<ul class="pagination">
+    <!-- Previous page link -->
+    <?php if (isset($this->previous)): ?>
+    <li><a href="<?php echo  '/search?vulnerabilities='.$query.'&score='.$score.'?page=' .$this->previous; ?>">
+            « <?=$this->translate('Previous'); ?>
+        </a></li>
+    <?php else: ?>
+        <li><span class="disabled">« <?=$this->translate('Previous'); ?></span></li>
+    <?php endif; ?>
 
-    <ul class="pagination">
-        <!-- Previous page link -->
-        <?php if (isset($this->previous)): ?>
-        <li><a href="<?php echo  '/search?vulnerabilities='.$query.'?page=' .$this->previous; ?>">
-                « <?=$this->translate('Previous'); ?>
-            </a></li>
+    <!-- Numbered page links -->
+    <?php foreach ($this->pagesInRange as $page): ?>
+        <?php if ($page != $this->current): ?>
+            <li><a href="<?php echo  '/search?vulnerabilities='.$query.'&score='.$score.'&page=' .$page; ?>">
+                <span id="norm" ><?php echo $page; ?></span></a></li>
         <?php else: ?>
-            <li><span class="disabled">« <?=$this->translate('Previous'); ?></span></li>
+            <li class="active"><span id="current"><?php echo $page; ?></span></li>
         <?php endif; ?>
+    <?php endforeach; ?>
 
-        <!-- Numbered page links -->
-        <?php foreach ($this->pagesInRange as $page): ?>
-            <?php if ($page != $this->current): ?>
-                <li><a href="<?php echo  '/search?vulnerabilities='.$query.'&page=' .$page; ?>">
-                    <span id="norm" ><?php echo $page; ?></span></a></li>
-            <?php else: ?>
-                <li class="active"><span id="current"><?php echo $page; ?></span></li>
-            <?php endif; ?>
-        <?php endforeach; ?>
-
-        <!-- Next page link -->
-        <?php if (isset($this->next)): ?>
-            <li><a href="<?php echo  '/search?vulnerabilities='.$query.'&page=' .$this->next; ?>">
-                <?=$this->translate('Next'); ?> »
-            </a></li>
-        <?php else: ?>
-            <li><span class="disabled"><?=$this->translate('Next'); ?>  »</span></li>
-        <?php endif; ?>
-    </ul>
+    <!-- Next page link -->
+    <?php if (isset($this->next)): ?>
+        <li><a href="<?php echo  '/search?vulnerabilities='.$query.'&score='.$score.'&page=' .$this->next; ?>">
+            <?=$this->translate('Next'); ?> »
+        </a></li>
+    <?php else: ?>
+        <li><span class="disabled"><?=$this->translate('Next'); ?>  »</span></li>
+    <?php endif; ?>
+</ul>
 <?php endif; ?>

@@ -12,8 +12,9 @@ class SearchController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $page = $this->_request->getParam('page');
-        $this->view->query = $qw = stripcslashes(strip_tags( trim($this->_getParam('vulnerabilities')) ));
+        $page = (int)trim($this->_request->getParam('page'));
+        $this->view->score = $score = (int)trim($this->_getParam('score'));
+        $this->view->query = $qw = strip_tags( trim($this->_getParam('vulnerabilities')) );
         //keep this query search in zend session to redir after login
         $aNamespace = new Zend_Session_Namespace('Vulnia');
         $aNamespace->lastquery = $this->_request->getParam('vulnerabilities');
@@ -24,6 +25,7 @@ class SearchController extends Zend_Controller_Action
         $this->cl->SetMatchMode(SPH_MATCH_EXTENDED2);
         $this->cl->SetSortMode(SPH_SORT_EXTENDED, "@id DESC");
         //$this->cl->SetSortMode(SPH_SORT_EXTENDED, "score DESC, @id DESC");
+        $this->cl->SetFilterRange( 'score', $score, 10);
         $this->cl->SetMaxQueryTime(1000);
 
         $itemsPerSphinxPage = 10000;

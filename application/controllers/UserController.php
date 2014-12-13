@@ -11,6 +11,10 @@ class UserController extends Zend_Controller_Action
     }
 
 
+    public function planAction(){
+        //TODO: set 3 plans: free 5 alerts, basic 20 alerts, pro 100 alerts
+        die('This feature is not available yet.');
+    }
 
     public function registerAction()
     {

@@ -1,14 +1,17 @@
-<h2><?php echo $this->total_found ?>  vulnerabilities found for "<?php  echo $this->query ?>"
+<h1><?php echo $this->total_found ?>  vulnerabilities found for "<?php  echo $this->query ?>"
 <?php
-if( isset($_GET['page']) && $_GET['page'] > 0){
-    echo ' - page ' . $_GET['page'];
+if( isset($this->score) && $this->score > 0){
+    echo ' with score >= ' . $this->score;
+}
+if( isset($_GET['page']) && $_GET['page'] > 1){
+    echo ' (page ' . $_GET['page'] . ')';
 }
 ?>
-</h2>
+</h1>
 <! -- query search seconds: <?php echo $this->query_time ?> --->
 <br>
           <?php echo
-       '<a  id="sticker_alerts" type="button" class="btn btn-default btn-lg" href="/alert/create">
+       '<a id="sticker_alerts" type="button" class="btn btn-default btn-lg" href="/alert/create">
           <span class="glyphicon glyphicon-bell"></span> Click here if you want to receive <b>'.$this->query.'</b> security email alerts.
           </a><br><br>';
 ?>

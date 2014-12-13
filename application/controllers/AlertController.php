@@ -88,7 +88,7 @@ class AlertController extends Zend_Controller_Action
             } else if ($user_alerts_count >= $this->auth->getIdentity()->alerts_limit ) {
                 $this->_helper->_flashMessenger->addMessage(
                     array('danger' => 'Sorry, you reached the limit of '. $user_alerts_limit
-                    .' saved alerts. Please, <a href="/user/upgrade">upgrade your plan here</a>'));
+                    .' saved alerts. Please, <a href="/user/plan">upgrade your plan here</a>'));
                 $this->_redirect('/alert/list');
             } else {
                 //TODO: add here api call to the cronopio scheduler

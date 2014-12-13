@@ -15,16 +15,33 @@ class Form_Search extends Zend_Form
         $this->setMethod('get');
         $this->setAttrib("class", "navbar-form navbar-left");
 
-
         $this->addElement(
             'text', 'vulnerabilities',
-
             array('value' => $this->q,
                 'class' => 'form-control ',
                 'filters' => array('StringTrim'),
                 'validators' => array(array('StringLength', false, array(2, 80)))
             )
         );
+
+    $this->addElement ( 'select', 'score', array (
+        'label' => 'score (level of importance):',
+        'required' => true,
+        'attribs' => array(  'score' => 'score'),
+        'multioptions' => array(
+                    0 => 'any',
+                    1 => '> = 1',
+                    2 => '> = 2',
+                    3 => '> = 3',
+                    4 => '> = 4',
+                    5 => '> = 5',
+                    6 => '> = 6',
+                    7 => '> = 7',
+                    8 => '> = 8',
+                    9 => '> = 9',
+
+                ),
+    ));
 
 
         $trackurl = substr(md5(rand(1, 99999)), 0, 6);

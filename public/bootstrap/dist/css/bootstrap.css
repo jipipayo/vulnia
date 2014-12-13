@@ -652,6 +652,7 @@ dt {
 }
 
 dd {
+    display:inline;
     margin-left: 0;
 }
 
@@ -2053,6 +2054,7 @@ legend {
 
 label {
     display: inline-block;
+    margin-top: 15px;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -2432,8 +2434,8 @@ textarea.input-lg {
     font-size: 14px;
     font-weight: normal;
     line-height: 1.428571429;
-    text-align: center;
-    white-space: nowrap;
+    text-align: left;
+    white-space: wrap;
     vertical-align: middle;
     cursor: pointer;
     background-image: none;
@@ -5441,12 +5443,12 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-    padding: 20px;
+    padding: 15px;
     margin-top: 10px;
     margin-bottom: 50px;
     font-size: 21px;
     font-weight: 200;
-    line-height: 2.1428571435;
+    line-height: 1.90;
     color: inherit;
     background-color: #F5E4F6;
 }
@@ -5457,7 +5459,7 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron p {
-    line-height: 1.4;
+    line-height: 1.1;
 }
 
 .container .jumbotron {
@@ -5476,7 +5478,7 @@ a.list-group-item.active > .badge,
     }
 
     .jumbotron h1 {
-        font-size: 63px;
+        font-size: 21px;
     }
 }
 
@@ -5512,6 +5514,10 @@ a.thumbnail.active {
 .thumbnail .caption {
     padding: 9px;
     color: #333333;
+}
+
+.errors {
+    color:#d9534f;
 }
 
 .alert {
