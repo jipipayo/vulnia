@@ -33,7 +33,7 @@ class Form_Search extends Zend_Form
 
         $this->addElement ( 'select', 'score', array (
             'label' => 'score (level of importance):',
-            'value' => $score,
+            'value' => $this->score,
             'required' => true,
             'attribs' => array( 'score' => 'score'),
             'multioptions' => array(
