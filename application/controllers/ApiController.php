@@ -35,6 +35,7 @@ class ApiController extends Zend_Rest_Controller
         $this->cl->SetFilterRange( 'published-datetime', $this->date, $today, $exclude=false);
         $resultSph = $this->cl->Query( $this->query, 'vulns');
 
+        $resultzs['results_count'] = 0;
         if($resultSph === false && $this->query){
             $resultzs['api_status'] = 'ko';
             $resultzs['message'] = $this->cl->GetLastError();
@@ -44,13 +45,11 @@ class ApiController extends Zend_Rest_Controller
             $resultzs['api_status'] = 'ok';
             foreach ($resultSph["matches"] as $doc => $docinfo) {
                     $resultzs['items'][$doc] = $modelVuln->getVulnById($doc);
+                    ++$resultzs['results_count'];
             }
         }
 
-        echo '<pre>';
-        //echo json_encode( $resultzs);
-        var_dump( $resultzs );
-        echo '</pre>';
+        echo json_encode( $resultzs);
 
 
 

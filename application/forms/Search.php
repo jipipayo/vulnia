@@ -5,6 +5,14 @@ class Form_Search extends Zend_Form
 {
     private $q;
     private $score;
+    private $placeholder;
+
+
+    private function _randomPlaceholder(){
+        //TODO: get most searched queries from db
+        $arr = Array( 'php 5.3', 'java', 'mysql 5.0', 'perl 5.12', 'ruby', 'wordpress', 'drupal', 'rails', 'node.js'  );
+        return $arr[array_rand($arr)];
+    }
 
     public function init()
     {
@@ -22,10 +30,13 @@ class Form_Search extends Zend_Form
         $this->setMethod('get');
         $this->setAttrib("class", "navbar-form navbar-left");
 
+        $this->placeholder = $this->_randomPlaceholder();
+
         $this->addElement(
             'text', 'vulnerabilities',
             array('value' => $this->q,
                 'class' => 'form-control ',
+                'placeholder' => $this->placeholder,
                 'filters' => array('StringTrim'),
                 'validators' => array(array('StringLength', false, array(2, 80)))
             )
@@ -37,7 +48,7 @@ class Form_Search extends Zend_Form
             'required' => true,
             'attribs' => array( 'score' => 'score'),
             'multioptions' => array(
-                        0 => 'any',
+                        0 => 'any score',
                         1 => '> = 1',
                         2 => '> = 2',
                         3 => '> = 3',
