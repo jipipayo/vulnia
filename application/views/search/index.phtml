@@ -16,11 +16,13 @@ if( isset($_GET['page']) && $_GET['page'] > 1){
           </a><br><br>';
 ?>
 <?php
-
-
 foreach ($this->paginator as  $val):
-    if($val['score'] < 4 ){
+    if($val['score'] == null){
+        $val['score'] = 'pending';
         $score_str = 'default';
+    }
+    else if($val['score'] < 4 && $val['score'] != null ){
+        $score_str = 'info';
     }
     else if($val['score'] < 7 ){
         $score_str = 'warning';

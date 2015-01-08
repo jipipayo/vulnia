@@ -1,9 +1,10 @@
 <div class="jumbotron">
     <div class="container" ><?php echo new Form_Search(); ?></div>
-        Secure yourself in 2 steps:
+        Secure your software in 3 steps:
         <ol>
             <li>Search the latest vulnerabilities about technologies you use daily.</li>
             <li>Schedule email alerts based on your own keywords.</li>
+            <li>Expect the bad boys.</li>
         </ol>
 </div>
 
@@ -18,8 +19,12 @@ function truncate($string, $width, $etc = ' ..')
 }
 
 foreach ($this->paginator as $val):
-    if($val['score'] < 4 ){
+    if($val['score'] == null){
+        $val['score'] = 'pending';
         $score_str = 'default';
+    }
+    else if($val['score'] < 4 && $val['score'] != null ){
+        $score_str = 'info';
     }
     else if($val['score'] < 7 ){
         $score_str = 'warning';
@@ -27,8 +32,9 @@ foreach ($this->paginator as $val):
     else if($val['score'] > 6 ){
         $score_str = 'danger';
     }
+
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
-    echo '<h3>' . $val['ext-id'] . ' - '  . truncate( $val['summary'], 90 ) . '</h3></a>';
+    echo '<h3>' . $val['ext-id'] . ' - '  . truncate( $val['summary'], 145 ) . '</h3></a>';
     echo '<p>' . $val['published-datetime'] . '</p>';
     echo '<span class="label label-'.$score_str.'">score: ' . $val['score'] . '</span>';
     echo '<hr>';

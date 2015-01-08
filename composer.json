@@ -2,7 +2,8 @@
     "name": "dani/vulnia",
     "require": {
         "zendframework/zendframework1": "1.*",
-        "chrisboulton/php-resque-scheduler": "1.*"
+        "chrisboulton/php-resque-scheduler": "1.*",
+        "jipipayo/sphinx-config-builder": "dev-master"
     },
     "authors": [
         {

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "80c873a839031ae699fa975dcfd56583",
+    "hash": "f5a48b8a22c5b0857a3c7624fb74dfea",
     "packages": [
         {
             "name": "chrisboulton/php-resque",
@@ -83,6 +83,37 @@
             "time": "2013-03-10 21:53:45"
         },
         {
+            "name": "jipipayo/sphinx-config-builder",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jipipayo/SphinxConfigBuilder.git",
+                "reference": "4b58ac5d4013e6837fb7ca84f4820850a185ddd6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jipipayo/SphinxConfigBuilder/zipball/4b58ac5d4013e6837fb7ca84f4820850a185ddd6",
+                "reference": "4b58ac5d4013e6837fb7ca84f4820850a185ddd6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Dani Remeseiro",
+                    "email": "jipipayo@cpan.org"
+                }
+            ],
+            "description": "A php class to build the sphinx search configuration file dynamically.",
+            "time": "2015-01-08 11:38:26"
+        },
+        {
             "name": "zendframework/zendframework1",
             "version": "1.12.9",
             "source": {
@@ -133,7 +164,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jipipayo/sphinx-config-builder": 20
+    },
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []
