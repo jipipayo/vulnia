@@ -4,20 +4,15 @@ require_once(APPLICATION_PATH . '../../library/Sphinx/sphinxapi.php');
 class ApiController extends Zend_Rest_Controller
 {
 
-    public function init()
-    {
+    public function init(){
         $this->_helper->viewRenderer->setNoRender();
         $this->_helper->layout->disableLayout();
-
-
     }
 
     public function indexAction(){
         $this->score = (int)trim($this->_getParam('score'));
-        $this->date = trim($this->_getParam('date'));
-        $this->date = strtotime($this->date);
+        $this->date = strtotime(trim($this->_getParam('date')));
         $this->query = stripcslashes(strip_tags( trim($this->_getParam('query')) ));
-
 
         $this->cl = new SphinxClient();
         $this->cl->SetServer('127.0.0.1', 3312);
@@ -44,12 +39,21 @@ class ApiController extends Zend_Rest_Controller
             $modelVuln = new Model_Vuln;
             $resultzs['api_status'] = 'ok';
             foreach ($resultSph["matches"] as $doc => $docinfo) {
-                    $resultzs['items'][$doc] = $modelVuln->getVulnById($doc);
-                    ++$resultzs['results_count'];
+                $vuln = $modelVuln->getVulnById($doc);
+                //fix the dash in the var names, to get the names from js properly
+                $vuln['ext_id'] = $vuln['ext-id'];
+                $vuln['published_datetime'] = $vuln['published-datetime'];
+                $vuln['last_modified_datetime'] = $vuln['last-modified-datetime'];
+                unset($vuln['ext-id']);
+                unset($vuln['published-datetime']);
+                unset($vuln['last-modified-datetime']);
+
+                $resultzs['items'][] = $vuln;
+                ++$resultzs['results_count'];
             }
         }
 
-        echo json_encode( $resultzs);
+        echo json_encode($resultzs);
 
 
 

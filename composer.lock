@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jipipayo/SphinxConfigBuilder.git",
-                "reference": "2fb2fccbcdb518110f30e7cf255175fa4d19c752"
+                "reference": "1704c2b555d9f08d0fd7bffa5258d0060eeda24c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jipipayo/SphinxConfigBuilder/zipball/2fb2fccbcdb518110f30e7cf255175fa4d19c752",
-                "reference": "2fb2fccbcdb518110f30e7cf255175fa4d19c752",
+                "url": "https://api.github.com/repos/jipipayo/SphinxConfigBuilder/zipball/1704c2b555d9f08d0fd7bffa5258d0060eeda24c",
+                "reference": "1704c2b555d9f08d0fd7bffa5258d0060eeda24c",
                 "shasum": ""
             },
             "require": {
@@ -40,20 +40,20 @@
                 }
             ],
             "description": "A php class to build the sphinx search configuration file dynamically.",
-            "time": "2015-01-12 18:20:34"
+            "time": "2015-01-13 21:44:59"
         },
         {
             "name": "zendframework/zendframework1",
-            "version": "1.12.9",
+            "version": "1.12.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf1.git",
-                "reference": "5faa0abbd371bebb76f2208c389e4d7e15c11f81"
+                "reference": "60567ad6d0eb2f216a88d2d87069f25be3d9a010"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf1/zipball/5faa0abbd371bebb76f2208c389e4d7e15c11f81",
-                "reference": "5faa0abbd371bebb76f2208c389e4d7e15c11f81",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/60567ad6d0eb2f216a88d2d87069f25be3d9a010",
+                "reference": "60567ad6d0eb2f216a88d2d87069f25be3d9a010",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2014-09-16 20:47:34"
+            "time": "2015-01-14 19:44:24"
         }
     ],
     "packages-dev": [],
