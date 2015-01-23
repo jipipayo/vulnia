@@ -135,15 +135,15 @@
   <hop> <from>Json Input</from><to>check webserver 2</to><enabled>Y</enabled> </hop>
   <hop> <from>check webserver 2</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
   <hop> <from>check webserver 2</from><to>sphinx down</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json Input 2</from><to>build html vuln list from json</to><enabled>Y</enabled> </hop>
-  <hop> <from>build html vuln list from json</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>send email alerts</to><enabled>N</enabled> </hop>
+  <hop> <from>Json Input 2</from><to>build html email</to><enabled>Y</enabled> </hop>
+  <hop> <from>build html email</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>send email alerts</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values 2</from><to>select email alert owners</to><enabled>Y</enabled> </hop>
-  <hop> <from>select email alert owners</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>N</enabled> </hop>
+  <hop> <from>select email alert owners</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>check webserver</name>
-    <type>FilterRows</type>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -152,20 +152,10 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>get querys vulnia api</send_true_to>
-<send_false_to>api server down</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>status_api</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>Y</text><length>1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>630</xloc>
-      <yloc>324</yloc>
+      <xloc>174</xloc>
+      <yloc>1032</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -315,6 +305,19 @@
         <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>results_count</name>
+        <path>&#x24;.results_count</path>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <IsInFields>Y</IsInFields>
@@ -369,6 +372,58 @@
     </step>
 
   <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>query</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>score</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>html</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>senderaddress</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>sendername</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>subject</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>mailserver</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>senderpassword</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>171</xloc>
+      <yloc>759</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>api server down</name>
     <type>Abort</type>
     <description/>
@@ -386,6 +441,66 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>760</xloc>
       <yloc>368</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>build html email</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var datajson &#x3d; eval&#x28;&#x27;&#x28;&#x27;&#x2b;items&#x2b;&#x27;&#x29;&#x27;&#x29;&#x3b;&#xa;&#xa;&#xa;&#xa;var html &#x3d; new XML&#x28;&#xa;	&#x3c;div&#x3e;&#xa;		&#x3c;ul&#x3e;&#xa;		&#x3c;&#x2f;ul&#x3e;&#xa;	&#x3c;&#x2f;div&#x3e;&#xa;&#x29;&#x3b;&#xa;&#xa;var urleditalert &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;vulnia.com&#x2f;alert&#x2f;list&#x22;&#x3b;&#xa;&#xa;html&#x5b;&#x27;p&#x27;&#x5d; &#x2b;&#x3d; &#x27;If you would like to stop receiving these emails about &#x27; &#x2b;  escape&#x28;query&#x29;  &#x2b; &#x27;, delete this alert from your &#x27;&#x3b;&#xa;html.p.appendChild&#x28;&#x3c;a href&#x3d;&#x7b;urleditalert&#x7d;&#x3e; vulnia.com admin area&#x3c;&#x2f;a&#x3e;&#x29;&#x3b;&#xa;&#xa;for&#x28;i &#x3d; 0&#x3b; i &#x3c; datajson.length&#x3b; i&#x2b;&#x2b;&#x29;&#x7b;&#xa;&#xa;	if&#x28;datajson&#x5b;i&#x5d;.score &#x3d;&#x3d; null &#x29;&#x7b;&#xa;		datajson&#x5b;i&#x5d;.score &#x3d; &#x27;not yet rated&#x27;&#x3b;&#xa;	&#x7d;&#xa;&#xa;	var urlvulnia &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;vulnia.com&#x2f;vulnerability&#x3f;id&#x3d;&#x22; &#x2b; datajson&#x5b;i&#x5d;.id&#x3b;&#xa;	html.ul.appendChild&#x28;&#x3c;li&#x3e;&#x7b;datajson&#x5b;i&#x5d;.ext_id&#x7d; -  score&#x3a; &#x7b;datajson&#x5b;i&#x5d;.score&#x7d;&#xa;	&#x3c;p&#x3e;&#x7b;datajson&#x5b;i&#x5d;.summary&#x7d;&#x3c;&#x2f;p&#x3e;&#xa;	&#x3c;a href&#x3d;&#x7b;urlvulnia&#x7d;&#x3e;more info&#x3c;&#x2f;a&#x3e;&#xa;&#x3c;&#x2f;li&#x3e;&#x29;&#x3b;&#xa;&#xa;	html.ul.appendChild&#x28;&#x3c;br&#x2f;&#x3e;&#x29;&#x3b;&#xa;&#xa;&#x7d;&#xa;&#xa;&#x2f;&#x2f;Alert&#x28;html&#x29;&#x3b;&#xa;&#xa;&#xa;var sendername &#x3d; &#x22;vulnia alert&#x22;&#x3b;&#xa;var subject &#x3d;  results_count  &#x2b; &#x27; hot vulnerabilities related to &#x27; &#x2b;  escape&#x28;query&#x29; &#x2b; &#x27; with score &#x3e;&#x3d; &#x27; &#x2b; score&#x3b;&#xa;var mailserver &#x3d; &#x22;smtp.mailgun.org&#x22;&#x3b;&#xa;&#xa;&#x2f;&#x2f;sandbox dev&#xa;&#x2f;&#x2f;var senderaddress &#x3d; &#x22;postmaster&#x40;sandboxc939b527adb44a379a55ccddc6ec3aba.mailgun.org&#x22;&#x3b;&#xa;&#x2f;&#x2f;var senderpassword &#x3d; &#x22;06c32025d84d5032da19361be3646db4&#x22;&#x3b;&#xa;&#xa;&#xa;&#x2f;&#x2f;prod&#xa;var senderaddress &#x3d; &#x22;noreply&#x40;alerts.vulnia.com&#x22;&#x3b;&#xa;var senderpassword &#x3d; &#x22;75c45097acfd361497329a0aa444eb9a&#x22;&#x3b;&#xa;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>html</name>
+        <rename>html</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>sendername</name>
+        <rename>sendername</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>subject</name>
+        <rename>subject</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>senderaddress</name>
+        <rename>senderaddress</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>mailserver</name>
+        <rename>mailserver</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>senderpassword</name>
+        <rename>senderpassword</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>347</xloc>
+      <yloc>759</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -409,6 +524,64 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>451</xloc>
       <yloc>324</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>check webserver</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>get querys vulnia api</send_true_to>
+<send_false_to>api server down</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>status_api</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>Y</text><length>1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>630</xloc>
+      <yloc>324</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>check webserver 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Filter rows 2</send_true_to>
+<send_false_to>sphinx down</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>api_status</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>ok</text><length>1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>628</xloc>
+      <yloc>585</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -447,7 +620,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;var urlapi &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;vulnia.com&#x2f;api&#x22;&#x3b;&#xa;var urlapi &#x3d; &#x22;http&#x3a;&#x2f;&#x2f;vulnia.dev&#x2f;api&#x22;&#x3b;&#xa;&#xa;&#x2f;&#x2f;ponemos la fecha a lo ultimo que tenemos en dev&#xa;var from_date &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;restamos un dia menos o no habr&#xe1; resultados...&#xa;&#x2f;&#x2f;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -1&#x29;&#x3b;&#xa;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -2&#x29;&#x3b;&#xa;from_date &#x3d; date2str&#x28;from_date,&#x22;yyyy-MM-dd&#x22;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;for dev&#xa;from_date&#x3d;&#x22;2015-01-01&#x22;&#x3b;&#xa;</jsScript_script>
+        <jsScript_script>var urlapi &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;vulnia.com&#x2f;api&#x22;&#x3b;&#xa;&#xa;&#x2f;&#x2f;ponemos la fecha a lo ultimo que tenemos en dev&#xa;var from_date &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;restamos un dia menos o no habr&#xe1; resultados...&#xa;&#x2f;&#x2f;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -1&#x29;&#x3b;&#xa;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -2&#x29;&#x3b;&#xa;from_date &#x3d; date2str&#x28;from_date,&#x22;yyyy-MM-dd&#x22;&#x29;&#x3b;&#xa;&#xa;&#xa;&#x2f;&#x2f;for dev&#xa;&#x2f;&#x2f;var urlapi &#x3d; &#x22;http&#x3a;&#x2f;&#x2f;vulnia.dev&#x2f;api&#x22;&#x3b;&#xa;&#x2f;&#x2f;from_date&#x3d;&#x22;2015-01-01&#x22;&#x3b;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>from_date</name>
         <rename>from_date</rename>
         <type>String</type>
@@ -464,66 +637,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>302</xloc>
       <yloc>324</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>build html vuln list from json</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var datajson &#x3d; eval&#x28;&#x27;&#x28;&#x27;&#x2b;items&#x2b;&#x27;&#x29;&#x27;&#x29;&#x3b;&#xa;&#xa;var score &#x3d; score&#x3b;&#xa;if&#x28;score &#x3d;&#x3d; null &#x29;&#x7b;&#xa;	score &#x3d; 0&#x3b;&#xa;&#x7d;&#xa;&#xa;var html &#x3d; new XML&#x28;&#x3c;div&#x3e;&#x3c;ul&#x3e;&#x3c;&#x2f;ul&#x3e;&#x3c;&#x2f;div&#x3e;&#x29;&#x3b;&#xa;&#xa;&#xa;for&#x28;i &#x3d; 0&#x3b; i &#x3c; datajson.length&#x3b; i&#x2b;&#x2b;&#x29;&#x7b;&#xa;	&#x2f;&#x2f;Alert&#x28;datajson&#x5b;i&#x5d;.id&#x29;&#x3b;&#xa;	&#x2f;&#x2f;Alert&#x28;datajson&#x5b;i&#x5d;.ext_id&#x29;&#x3b;&#xa;	&#x2f;&#x2f;Alert&#x28;datajson&#x5b;i&#x5d;.score&#x29;&#x3b;&#xa;	&#x2f;&#x2f;Alert&#x28;datajson&#x5b;i&#x5d;.summary&#x29;&#x3b;&#xa;&#xa;	html.ul.appendChild&#x28;&#x3c;li&#x3e;&#x7b;datajson&#x5b;i&#x5d;.ext_id&#x7d;&#x3c;&#x2f;li&#x3e;&#x29;&#x3b;&#xa;&#xa;&#x7d;&#xa;&#xa;var sendername &#x3d; &#x22;vulnia alerts&#x22;&#x3b;&#xa;var subject &#x3d; &#x22;your security update about &#x22; &#x2b; query &#x3b;&#xa;&#x2f;&#x2f;var senderaddress &#x3d; &#x22;noreply&#x40;vulnia.com&#x22;&#x3b;&#xa;var senderaddress &#x3d; &#x22;dani&#x40;localhost&#x22;&#x3b;&#xa;var mailserver &#x3d; &#x22;localhost&#x22;&#x3b;&#xa;&#x2f;&#x2f;Alert&#x28;html&#x29;&#x3b;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>html</name>
-        <rename>html</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>score</name>
-        <rename>score</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>Y</replace>
-      </field>      <field>        <name>sendername</name>
-        <rename>sendername</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>subject</name>
-        <rename>subject</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>senderaddress</name>
-        <rename>senderaddress</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>mailserver</name>
-        <rename>mailserver</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>347</xloc>
-      <yloc>759</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -604,6 +717,40 @@
     </step>
 
   <step>
+    <name>select email alert owners</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>vulny localhost</connection>
+    <rowlimit>1</rowlimit>
+    <sql>SELECT email AS email_owner FROM users where  id in &#x28; SELECT user_id_owner FROM alerts WHERE query &#x3d; &#x3f; and score &#x3d; &#x3f;&#x29;</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+      <field>
+        <name>query</name>
+        <type>String</type>
+      </field>
+      <field>
+        <name>score</name>
+        <type>Integer</type>
+      </field>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>174</xloc>
+      <yloc>849</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>send email alerts</name>
     <type>Mail</type>
     <description/>
@@ -642,10 +789,10 @@
       <zip_files>N</zip_files>
       <zip_name/>
       <zip_limit_size>0</zip_limit_size>
-      <use_auth>N</use_auth>
+      <use_auth>Y</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user/>
-      <auth_password>Encrypted </auth_password>
+      <auth_user>senderaddress</auth_user>
+      <auth_password>Encrypted 2be98dcad04c39796bb18bd63c99dbdde</auth_password>
       <only_comment>Y</only_comment>
       <use_HTML>Y</use_HTML>
       <use_Priority>N</use_Priority>
@@ -682,136 +829,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>765</xloc>
       <yloc>622</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>check webserver 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Filter rows 2</send_true_to>
-<send_false_to>sphinx down</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>api_status</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>ok</text><length>1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>628</xloc>
-      <yloc>585</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>query</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>score</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>html</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>senderaddress</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>sendername</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>subject</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>mailserver</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>171</xloc>
-      <yloc>759</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>174</xloc>
-      <yloc>1032</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>select email alert owners</name>
-    <type>DBJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>vulny localhost</connection>
-    <rowlimit>1</rowlimit>
-    <sql>SELECT email AS email_owner FROM users where  id in &#x28; SELECT user_id_owner FROM alerts WHERE query &#x3d; &#x3f; and score &#x3d; &#x3f;&#x29;</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>N</replace_vars>
-    <parameter>
-      <field>
-        <name>query</name>
-        <type>String</type>
-      </field>
-      <field>
-        <name>score</name>
-        <type>Integer</type>
-      </field>
-    </parameter>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>174</xloc>
-      <yloc>849</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

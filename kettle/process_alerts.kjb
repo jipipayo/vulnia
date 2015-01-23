@@ -41,8 +41,8 @@
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
-      <repeat>Y</repeat>
-      <schedulerType>2</schedulerType>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
       <intervalSeconds>0</intervalSeconds>
       <intervalMinutes>60</intervalMinutes>
       <hour>20</hour>
@@ -97,7 +97,7 @@
       <destination>daniel.remeseiro&#x40;gmail.com</destination>
       <destinationCc/>
       <destinationBCc/>
-      <replyto>norelply&#x40;vulnia.com</replyto>
+      <replyto>noreply&#x40;vulnia.com</replyto>
       <replytoname>vulnia - process alerts bot</replytoname>
       <subject>success - process alerts job</subject>
       <include_date>Y</include_date>
@@ -140,7 +140,7 @@
       <destinationBCc/>
       <replyto/>
       <replytoname>vulnia - process alerts bot</replytoname>
-      <subject>success - process alerts job</subject>
+      <subject>ERROR - process alerts job</subject>
       <include_date>Y</include_date>
       <contact_person/>
       <contact_phone/>
