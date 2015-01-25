@@ -620,7 +620,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var urlapi &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;vulnia.com&#x2f;api&#x22;&#x3b;&#xa;&#xa;&#x2f;&#x2f;ponemos la fecha a lo ultimo que tenemos en dev&#xa;var from_date &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;restamos un dia menos o no habr&#xe1; resultados...&#xa;&#x2f;&#x2f;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -1&#x29;&#x3b;&#xa;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -2&#x29;&#x3b;&#xa;from_date &#x3d; date2str&#x28;from_date,&#x22;yyyy-MM-dd&#x22;&#x29;&#x3b;&#xa;&#xa;&#xa;&#x2f;&#x2f;for dev&#xa;&#x2f;&#x2f;var urlapi &#x3d; &#x22;http&#x3a;&#x2f;&#x2f;vulnia.dev&#x2f;api&#x22;&#x3b;&#xa;&#x2f;&#x2f;from_date&#x3d;&#x22;2015-01-01&#x22;&#x3b;&#xa;</jsScript_script>
+        <jsScript_script>var urlapi &#x3d; &#x22;https&#x3a;&#x2f;&#x2f;vulnia.com&#x2f;api&#x22;&#x3b;&#xa;&#xa;&#x2f;&#x2f;ponemos la fecha a lo ultimo que tenemos en dev&#xa;var from_date &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;restamos un dia menos o no habr&#xe1; resultados...&#xa;from_date&#x3d; dateAdd&#x28;from_date, &#x22;d&#x22;, -1&#x29;&#x3b;&#xa;from_date &#x3d; date2str&#x28;from_date,&#x22;yyyy-MM-dd&#x22;&#x29;&#x3b;&#xa;&#xa;&#xa;&#x2f;&#x2f;for dev&#xa;&#x2f;&#x2f;var urlapi &#x3d; &#x22;http&#x3a;&#x2f;&#x2f;vulnia.dev&#x2f;api&#x22;&#x3b;&#xa;&#x2f;&#x2f;from_date&#x3d;&#x22;2015-01-01&#x22;&#x3b;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>from_date</name>
         <rename>from_date</rename>
         <type>String</type>
