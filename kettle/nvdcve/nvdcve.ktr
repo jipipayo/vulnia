@@ -62,6 +62,8 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
+         <slaveserver><name>localhost test carte</name><hostname>127.0.0.1</hostname><port>8080</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master></slaveserver>
+         <slaveserver><name>localhost 62000 carte</name><hostname>127.0.0.1</hostname><port>62000</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master></slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
@@ -101,9 +103,45 @@
   <hop> <from>Filter rows</from><to>drop</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
   <hop> <from>Get data from XML 2</from><to>foreach xml entries</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get data from XML</from><to>drop 3</to><enabled>N</enabled> </hop>
   <hop> <from>foreach xml entries</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get System timenow</from><to>format timenow</to><enabled>Y</enabled> </hop>
+  <hop> <from>format timenow</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  <hop> <from>Insert &#x2f; Update</from><to>Identify last row</to><enabled>Y</enabled> </hop>
+  <hop> <from>Identify last row</from><to>Get System timenow</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>localhost vulny mysql</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>UPDATE &#x60;last_date_index_update&#x60; SET &#x60;last_index&#x60;&#x3d;  &#x3f;</sql>
+    <set_params>Y</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+       <argument><name>timenow</name></argument>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>694</xloc>
+      <yloc>700</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
@@ -146,8 +184,8 @@
     </step>
 
   <step>
-    <name>Get data from XML</name>
-    <type>getXMLData</type>
+    <name>Get System timenow</name>
+    <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -156,436 +194,16 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <namespaceaware>N</namespaceaware>
-    <ignorecomments>N</ignorecomments>
-    <readurl>N</readurl>
-    <validating>N</validating>
-    <usetoken>N</usetoken>
-    <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <rownum_field/>
-    <encoding>UTF-8</encoding>
-    <file>
-      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;tmp&#x2f;</name>
-      <filemask>.&#x2a;.xml</filemask>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
     <fields>
       <field>
-        <name>fact-ref</name>
-        <xpath>vuln&#x3a;vulnerable-configuration&#x2f;cpe-lang&#x3a;logical-test&#x2f;cpe-lang&#x3a;fact-ref</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>vulnerable_configuration</name>
-        <xpath>vuln&#x3a;vulnerable-configuration</xpath>
-        <element_type>node</element_type>
-        <result_type>singlenode</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>vulnerable_software</name>
-        <xpath>vuln&#x3a;vulnerable-software-list&#x2f;vuln&#x3a;product</xpath>
-        <element_type>node</element_type>
-        <result_type>singlenode</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>cve-id</name>
-        <xpath>vuln&#x3a;cve-id</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>published-datetime</name>
-        <xpath>vuln&#x3a;published-datetime</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>last-modified-datetime</name>
-        <xpath>vuln&#x3a;last-modified-datetime</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>score</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;score</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>access-vector</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;access-vector</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>access-complexity</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;access-complexity</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>authentication</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;authentication</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>confidentiality-impact</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;confidentiality-impact</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>integrity-impact</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;integrity-impact</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>availability-impact</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;availability-impact</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>source</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;source</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>generated-on-datetime</name>
-        <xpath>vuln&#x3a;cvss&#x2f;cvss&#x3a;base_metrics&#x2f;cvss&#x3a;generated-on-datetime</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>cvss</name>
-        <xpath>vuln&#x3a;cvss</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>cwe</name>
-        <xpath>vuln&#x3a;cwe</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>source</name>
-        <xpath>vuln&#x3a;references&#x2f;vuln&#x3a;source</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>reference</name>
-        <xpath>vuln&#x3a;references&#x2f;vuln&#x3a;reference</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>summary</name>
-        <xpath>vuln&#x3a;summary</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>security-protection</name>
-        <xpath>vuln&#x3a;security-protection</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>definition</name>
-        <xpath>vuln&#x3a;scanner&#x2f;vuln&#x3a;definition</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>assessment_check</name>
-        <xpath>vuln&#x3a;assessment_check</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>fact-ref</name>
-        <xpath>vuln&#x3a;vulnerable-configuration&#x2f;cpe-lang&#x3a;logical-test&#x2f;cpe-lang&#x3a;logical-test&#x2f;cpe-lang&#x3a;fact-ref</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>logical-test</name>
-        <xpath>vuln&#x3a;vulnerable-configuration&#x2f;cpe-lang&#x3a;logical-test</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>discovered-datetime</name>
-        <xpath>vuln&#x3a;discovered-datetime</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <loopxpath>&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;nvd&#x27;&#x5d;&#x2f;&#x2a;&#x5b;name&#x28;&#x29;&#x3d;&#x27;entry&#x27;&#x5d;</loopxpath>
-    <IsInFields>N</IsInFields>
-    <IsAFile>N</IsAFile>
-    <XmlField/>
-    <prunePath/>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+        <name>timenow</name>
+        <type>system date &#x28;fixed&#x29;</type>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>185</xloc>
-      <yloc>442</yloc>
+      <xloc>695</xloc>
+      <yloc>541</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -841,6 +459,26 @@
     </step>
 
   <step>
+    <name>Identify last row</name>
+    <type>DetectLastRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <resultfieldname>lastrow</resultfieldname>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>695</xloc>
+      <yloc>466</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Insert &#x2f; Update</name>
     <type>InsertUpdate</type>
     <description/>
@@ -922,25 +560,6 @@
     </step>
 
   <step>
-    <name>drop 3</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>321</xloc>
-      <yloc>441</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>foreach xml entries</name>
     <type>ScriptValueMod</type>
     <description/>
@@ -972,6 +591,36 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>378</xloc>
       <yloc>296</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>format timenow</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var timenow &#x3d; date2str&#x28;timenow,&#x22;yyyy-MM-dd HH&#x3a;mm&#x3a;ss&#x22;&#x29;&#x3b;&#xa;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>timenow</name>
+        <rename>timenow</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>695</xloc>
+      <yloc>611</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

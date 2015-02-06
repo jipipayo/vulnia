@@ -9,7 +9,7 @@
 </div>
 
 
-<h3>Last indexed vulnerabilities:</h3>
+<h3>Last indexed vulnerabilities ( <?php echo $this->lastIndexed ?> UTC+1 ) </h3>
 <?php
 
 function truncate($string, $width, $etc = ' ..')
@@ -34,7 +34,7 @@ foreach ($this->paginator as $val):
     }
 
     echo '<a href="/vulnerability?id=' . $val['id'] . ' ">' ;
-    echo '<h3>' . $val['ext-id'] . ' - '  . truncate( $val['summary'], 145 ) . '</h3></a>';
+    echo '<h3>' . $val['ext-id'] . ' - '  . truncate( $val['summary'], 170 ) . '</h3></a>';
     echo '<p>' . $val['published-datetime'] . '</p>';
     echo '<span class="label label-'.$score_str.'">score: ' . $val['score'] . '</span>';
     echo '<hr>';

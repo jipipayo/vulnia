@@ -12,6 +12,12 @@ class Model_Search extends Zend_Db_Table_Abstract{
         $this->table->getAdapter()->query($sql, array_merge(array_values($values), array_values($values)));
     }
 
+    public function getLastIndexed(){
+        $sql = "SELECT last_index FROM last_date_index_update LIMIT 1;";
+        return $this->table->getAdapter()->query($sql)->fetchAll();
+    }
+
+
 
     public function getMostSearched($limit=20){
         $limit = (int)$limit;

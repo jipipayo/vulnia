@@ -14,8 +14,12 @@ class IndexController extends Zend_Controller_Action
         $this->view->metadescription = 'search and find all the software security vulnerabilities';
 
         $cve = new Model_Vuln();
-
         $this->entries = $cve->getVulnsDesc();
+
+        $searchModel = new Model_Search();
+        $lastIndexedDate = $searchModel->getLastIndexed();
+
+        $this->view->lastIndexed = $lastIndexedDate[0]['last_index'];
 
 
         $page = (int)$this->_getParam('page');
