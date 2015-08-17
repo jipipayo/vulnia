@@ -3,8 +3,8 @@
 if( isset($this->score) && $this->score > 0){
     echo ' with score >= ' . $this->score;
 }
-if( isset($_GET['page']) && $_GET['page'] > 1){
-    echo ' (page ' . $_GET['page'] . ')';
+if( isset($this->page) && $this->page > 1){
+    echo ' (page ' . $this->page . ')';
 }
 ?>
 </h1>

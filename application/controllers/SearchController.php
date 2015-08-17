@@ -12,8 +12,8 @@ class SearchController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $page = (int)trim($this->_request->getParam('page'));
-        $this->view->score = $score = (int)trim($this->_getParam('score'));
+        $this->view->page = $page = strip_tags((int)trim($this->_request->getParam('page')) );
+        $this->view->score = $score = strip_tags((int)trim($this->_getParam('score')));
         $this->view->query = $qw = strip_tags( trim($this->_getParam('vulnerabilities')) );
         //keep this query search in zend session to redir after login
         $aNamespace = new Zend_Session_Namespace('Vulnia');
