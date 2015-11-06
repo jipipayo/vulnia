@@ -100,14 +100,14 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Filter rows</from><to>drop</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
   <hop> <from>Get data from XML 2</from><to>foreach xml entries</to><enabled>Y</enabled> </hop>
   <hop> <from>foreach xml entries</from><to>Filter rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Get System timenow</from><to>format timenow</to><enabled>Y</enabled> </hop>
   <hop> <from>format timenow</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
   <hop> <from>Insert &#x2f; Update</from><to>Identify last row</to><enabled>Y</enabled> </hop>
   <hop> <from>Identify last row</from><to>Get System timenow</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Insert &#x2f; Update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>drop</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Execute SQL script</name>
@@ -558,8 +558,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>693</xloc>
-      <yloc>235</yloc>
+      <xloc>728</xloc>
+      <yloc>206</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

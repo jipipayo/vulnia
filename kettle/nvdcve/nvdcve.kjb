@@ -12,6 +12,8 @@
     <parameters>
     </parameters>
     <slaveservers>
+         <slaveserver><name>localhost test carte</name><hostname>127.0.0.1</hostname><port>8080</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master></slaveserver>
+         <slaveserver><name>localhost 62000 carte</name><hostname>127.0.0.1</hostname><port>62000</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master></slaveserver>
     </slaveservers>
 <job-log-table><connection/>
 <schema/>
@@ -57,8 +59,8 @@
       <name>download nvdcve-2.0-2013.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2013.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2013.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2013.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2013.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -77,7 +79,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>329</yloc>
+      <yloc>427</yloc>
       </entry>
     <entry>
       <name>Create tmp folder</name>
@@ -104,15 +106,15 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>329</yloc>
+      <xloc>414</xloc>
+      <yloc>427</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2012.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2012.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2012.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2012.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2012.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -131,7 +133,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>414</yloc>
+      <yloc>511</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2012</name>
@@ -147,14 +149,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>414</yloc>
+      <yloc>511</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2011.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2011.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2011.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2011.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2011.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -173,7 +175,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>493</yloc>
+      <yloc>590</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2011</name>
@@ -189,14 +191,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>493</yloc>
+      <yloc>590</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2010.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2010.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2010.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2010.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2010.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -215,7 +217,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>572</yloc>
+      <yloc>669</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2010</name>
@@ -231,14 +233,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>572</yloc>
+      <yloc>669</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2009.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2009.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2009.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2009.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2009.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -257,7 +259,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>651</yloc>
+      <yloc>748</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2009</name>
@@ -273,14 +275,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>651</yloc>
+      <yloc>748</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2008.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2008.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2008.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2008.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2008.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -299,7 +301,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>730</yloc>
+      <yloc>827</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2008</name>
@@ -315,14 +317,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>730</yloc>
+      <yloc>827</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2007.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2007.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2007.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2007.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2007.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -341,7 +343,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>809</yloc>
+      <yloc>906</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2007</name>
@@ -357,14 +359,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>809</yloc>
+      <yloc>906</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2006.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2006.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2006.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2006.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2006.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -383,7 +385,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>893</yloc>
+      <yloc>990</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2006</name>
@@ -399,14 +401,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>893</yloc>
+      <yloc>990</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2005.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2005.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2005.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2005.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2005.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -425,7 +427,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>981</yloc>
+      <yloc>1078</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2005</name>
@@ -441,14 +443,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>981</yloc>
+      <yloc>1078</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2004.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2004.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2004.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2004.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2004.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -467,7 +469,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>1072</yloc>
+      <yloc>1169</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2004</name>
@@ -483,14 +485,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>1072</yloc>
+      <yloc>1169</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2003.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2003.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2003.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2003.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2003.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -509,7 +511,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>1145</yloc>
+      <yloc>1242</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2003</name>
@@ -525,14 +527,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>1145</yloc>
+      <yloc>1242</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2002.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2002.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2002.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2002.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2002.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -551,7 +553,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>1224</yloc>
+      <yloc>1321</yloc>
       </entry>
     <entry>
       <name>if file exist nvdcve-2.0-2002</name>
@@ -567,14 +569,14 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>1224</yloc>
+      <yloc>1321</yloc>
       </entry>
     <entry>
       <name>download nvdcve-2.0-2014.xml</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2014.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2014.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2014.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2014.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -593,7 +595,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>655</xloc>
-      <yloc>251</yloc>
+      <yloc>348</yloc>
       </entry>
     <entry>
       <name>if files exist nvdcve-2.0-2014</name>
@@ -609,14 +611,26 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>251</yloc>
+      <yloc>348</yloc>
       </entry>
     <entry>
-      <name>download nvdcve-2.0-recent.xml</name>
+      <name>delete previous nvdcve-2.0-2015.xml</name>
+      <description/>
+      <type>DELETE_FILE</type>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2015.xml</filename>
+      <fail_if_file_not_exists>N</fail_if_file_not_exists>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>412</xloc>
+      <yloc>258</yloc>
+      </entry>
+    <entry>
+      <name>download nvdcve-2.0-2015.xml.gz</name>
       <description/>
       <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-recent.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-recent.xml</targetfilename>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2015.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2015.xml.zip</targetfilename>
       <file_appended>N</file_appended>
       <date_time_added>N</date_time_added>
       <targetfilename_extention/>
@@ -634,73 +648,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>651</xloc>
-      <yloc>159</yloc>
-      </entry>
-    <entry>
-      <name>Delete previous recent.xml</name>
-      <description/>
-      <type>DELETE_FILE</type>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-recent.xml</filename>
-      <fail_if_file_not_exists>N</fail_if_file_not_exists>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>417</xloc>
-      <yloc>160</yloc>
-      </entry>
-    <entry>
-      <name>download nvdcve-2.0-modified.xml</name>
-      <description/>
-      <type>HTTP</type>
-      <url>http&#x3a;&#x2f;&#x2f;static.nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-modified.xml</url>
-      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-modified.xml</targetfilename>
-      <file_appended>N</file_appended>
-      <date_time_added>N</date_time_added>
-      <targetfilename_extention/>
-      <uploadfilename/>
-      <url_fieldname/>
-      <run_every_row>N</run_every_row>
-      <username/>
-      <password>Encrypted </password>
-      <proxy_host/>
-      <proxy_port/>
-      <non_proxy_hosts/>
-      <addfilenameresult>Y</addfilenameresult>
-      <headers>
-      </headers>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>649</xloc>
-      <yloc>64</yloc>
-      </entry>
-    <entry>
-      <name>Delete previous nvdcve-2.0-modified.xml</name>
-      <description/>
-      <type>DELETE_FILE</type>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-modified.xml</filename>
-      <fail_if_file_not_exists>N</fail_if_file_not_exists>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>418</xloc>
-      <yloc>64</yloc>
+      <xloc>657</xloc>
+      <yloc>260</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
       <to>Create tmp folder</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Create tmp folder</from>
-      <to>if files exist nvdcve-2.0-2013</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -934,16 +889,7 @@
     </hop>
     <hop>
       <from>Create tmp folder</from>
-      <to>Delete previous recent.xml</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Delete previous recent.xml</from>
-      <to>download nvdcve-2.0-recent.xml</to>
+      <to>delete previous nvdcve-2.0-2015.xml</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -952,7 +898,7 @@
     </hop>
     <hop>
       <from>Create tmp folder</from>
-      <to>Delete previous nvdcve-2.0-modified.xml</to>
+      <to>if files exist nvdcve-2.0-2013</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -960,8 +906,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Delete previous nvdcve-2.0-modified.xml</from>
-      <to>download nvdcve-2.0-modified.xml</to>
+      <from>delete previous nvdcve-2.0-2015.xml</from>
+      <to>download nvdcve-2.0-2015.xml.gz</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
