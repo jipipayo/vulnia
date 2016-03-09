@@ -78,7 +78,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>427</yloc>
       </entry>
     <entry>
@@ -106,7 +106,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>414</xloc>
+      <xloc>416</xloc>
       <yloc>427</yloc>
       </entry>
     <entry>
@@ -132,7 +132,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>511</yloc>
       </entry>
     <entry>
@@ -174,7 +174,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>590</yloc>
       </entry>
     <entry>
@@ -216,7 +216,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>669</yloc>
       </entry>
     <entry>
@@ -258,7 +258,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>748</yloc>
       </entry>
     <entry>
@@ -300,7 +300,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>827</yloc>
       </entry>
     <entry>
@@ -342,7 +342,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>906</yloc>
       </entry>
     <entry>
@@ -384,7 +384,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>990</yloc>
       </entry>
     <entry>
@@ -426,7 +426,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>1078</yloc>
       </entry>
     <entry>
@@ -468,7 +468,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>1169</yloc>
       </entry>
     <entry>
@@ -510,7 +510,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>1242</yloc>
       </entry>
     <entry>
@@ -552,7 +552,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>1321</yloc>
       </entry>
     <entry>
@@ -594,7 +594,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>655</xloc>
+      <xloc>657</xloc>
       <yloc>348</yloc>
       </entry>
     <entry>
@@ -614,19 +614,45 @@
       <yloc>348</yloc>
       </entry>
     <entry>
-      <name>delete previous nvdcve-2.0-2015.xml</name>
+      <name>delete previous nvdcve-2.0-2016.xml</name>
       <description/>
       <type>DELETE_FILE</type>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2015.xml</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2016.xml</filename>
       <fail_if_file_not_exists>N</fail_if_file_not_exists>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>412</xloc>
-      <yloc>258</yloc>
+      <xloc>416</xloc>
+      <yloc>166</yloc>
       </entry>
     <entry>
-      <name>download nvdcve-2.0-2015.xml.gz</name>
+      <name>download nvdcve-2.0-2016.xml.gz</name>
+      <description/>
+      <type>HTTP</type>
+      <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2016.xml.zip</url>
+      <targetfilename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2016.xml.zip</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extention/>
+      <uploadfilename/>
+      <url_fieldname/>
+      <run_every_row>N</run_every_row>
+      <username/>
+      <password>Encrypted </password>
+      <proxy_host/>
+      <proxy_port/>
+      <non_proxy_hosts/>
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>657</xloc>
+      <yloc>166</yloc>
+      </entry>
+    <entry>
+      <name>download nvdcve-2.0-2015.xml</name>
       <description/>
       <type>HTTP</type>
       <url>https&#x3a;&#x2f;&#x2f;nvd.nist.gov&#x2f;feeds&#x2f;xml&#x2f;cve&#x2f;nvdcve-2.0-2015.xml.zip</url>
@@ -649,7 +675,23 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>657</xloc>
-      <yloc>260</yloc>
+      <yloc>269</yloc>
+      </entry>
+    <entry>
+      <name>if files exist nvdcve-2.0-2015</name>
+      <description/>
+      <type>FILES_EXIST</type>
+      <filename/>
+      <fields>
+        <field>
+          <name>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;tmp&#x2f;nvdcve-2.0-2015.xml</name>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>416</xloc>
+      <yloc>269</yloc>
       </entry>
   </entries>
   <hops>
@@ -889,7 +931,7 @@
     </hop>
     <hop>
       <from>Create tmp folder</from>
-      <to>delete previous nvdcve-2.0-2015.xml</to>
+      <to>delete previous nvdcve-2.0-2016.xml</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -906,13 +948,31 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>delete previous nvdcve-2.0-2015.xml</from>
-      <to>download nvdcve-2.0-2015.xml.gz</to>
+      <from>delete previous nvdcve-2.0-2016.xml</from>
+      <to>download nvdcve-2.0-2016.xml.gz</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Create tmp folder</from>
+      <to>if files exist nvdcve-2.0-2015</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>if files exist nvdcve-2.0-2015</from>
+      <to>download nvdcve-2.0-2015.xml</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
