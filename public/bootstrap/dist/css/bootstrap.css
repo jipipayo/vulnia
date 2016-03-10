@@ -2480,7 +2480,7 @@ fieldset[disabled] .btn {
 
 .btn-default {
     color: #333333;
-    background-color: #ffffff;
+    background-color: #ebebeb;
     border-color: #cccccc;
 }
 
@@ -2490,7 +2490,7 @@ fieldset[disabled] .btn {
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
     color: #333333;
-    background-color: #ebebeb;
+    background-color: #ffffff;
     border-color: #adadad;
 }
 
