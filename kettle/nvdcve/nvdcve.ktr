@@ -119,12 +119,12 @@
            <schema_name/>
            </partitioning>
     <connection>localhost vulny mysql</connection>
-    <execute_each_row>N</execute_each_row>
-    <single_statement>Y</single_statement>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
     <sql>UPDATE &#x60;last_date_index_update&#x60; SET &#x60;last_index&#x60;&#x3d;  &#x3f;</sql>
-    <set_params>N</set_params>
+    <set_params>Y</set_params>
     <insert_field/>
     <update_field/>
     <delete_field/>
