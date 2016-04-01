@@ -92,8 +92,8 @@
       <name>Mail success</name>
       <description/>
       <type>MAIL</type>
-      <server>localhost</server>
-      <port>21</port>
+      <server>smtp.mailgun.org</server>
+      <port/>
       <destination>daniel.remeseiro&#x40;gmail.com</destination>
       <destinationCc/>
       <destinationBCc/>
@@ -107,10 +107,10 @@
       <include_files>N</include_files>
       <zip_files>Y</zip_files>
       <zip_name/>
-      <use_auth>N</use_auth>
+      <use_auth>Y</use_auth>
       <use_secure_auth>N</use_secure_auth>
-      <auth_user/>
-      <auth_password>Encrypted </auth_password>
+      <auth_user>noreply&#x40;alerts.vulnia.com</auth_user>
+      <auth_password>Encrypted 3735633435303937616366643336313687af9cfa53c6c285aa4dfa24db90f6db</auth_password>
       <only_comment>N</only_comment>
       <use_HTML>N</use_HTML>
       <use_Priority>N</use_Priority>
