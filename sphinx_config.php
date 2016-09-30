@@ -14,7 +14,8 @@ $src_vulns_arr = Array(
         'sql_sock'              => '/var/run/mysqld/mysqld.sock',
         'sql_port'              => 3306,
         'sql_query_pre'         => 'SET NAMES utf8',
-        'sql_query'             => 'SELECT `id`,`ext-id`, UNIX_TIMESTAMP(`published-datetime`) `published-datetime` ,`score`,`summary`, `products` FROM vulns;',
+        'sql_query'             => 'SELECT `id`,`ext-id`, UNIX_TIMESTAMP(`published-datetime`) `published-datetime`\
+                                    ,`score`,`summary`, `products` FROM vulns;',
         'sql_attr_uint'         => 'score',
         'sql_attr_timestamp'    => 'published-datetime',
     );

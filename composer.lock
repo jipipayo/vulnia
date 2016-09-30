@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "be1d67a5681216870520a6d08e1221d4",
+    "content-hash": "b0e58fabafb3d0a0c89be5a2648f1322",
     "packages": [
         {
             "name": "jipipayo/sphinx-config-builder",
@@ -12,16 +13,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jipipayo/SphinxConfigBuilder.git",
-                "reference": "0d50d4e2ea89cf711c981368f3111f3ca213dc90"
+                "reference": "c3714ca57d400aa2c4f9bfcecd8d41e4a8b88278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jipipayo/SphinxConfigBuilder/zipball/0d50d4e2ea89cf711c981368f3111f3ca213dc90",
-                "reference": "0d50d4e2ea89cf711c981368f3111f3ca213dc90",
+                "url": "https://api.github.com/repos/jipipayo/SphinxConfigBuilder/zipball/c3714ca57d400aa2c4f9bfcecd8d41e4a8b88278",
+                "reference": "c3714ca57d400aa2c4f9bfcecd8d41e4a8b88278",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
+            },
+            "suggest": {
+                "neutron/sphinxsearch-api": "Allows to use sphinx via official (by Andrew Aksyonoff) php Sphinx api"
             },
             "type": "library",
             "autoload": {
@@ -44,20 +48,20 @@
                 "configuration",
                 "sphinx"
             ],
-            "time": "2015-01-21 14:06:16"
+            "time": "2015-02-02 17:38:04"
         },
         {
             "name": "zendframework/zendframework1",
-            "version": "1.12.10",
+            "version": "1.12.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf1.git",
-                "reference": "60567ad6d0eb2f216a88d2d87069f25be3d9a010"
+                "reference": "9f0bbc8b626bf35030afd766d9a7e506864e8e0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf1/zipball/60567ad6d0eb2f216a88d2d87069f25be3d9a010",
-                "reference": "60567ad6d0eb2f216a88d2d87069f25be3d9a010",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/9f0bbc8b626bf35030afd766d9a7e506864e8e0b",
+                "reference": "9f0bbc8b626bf35030afd766d9a7e506864e8e0b",
                 "shasum": ""
             },
             "require": {
@@ -91,7 +95,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2015-01-14 19:44:24"
+            "time": "2015-11-23 15:11:10"
         }
     ],
     "packages-dev": [],
