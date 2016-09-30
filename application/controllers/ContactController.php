@@ -30,7 +30,7 @@ class ContactController extends Zend_Controller_Action
                 $body = $user_info . '<br/>' . $message;
                 $mail->setBodyHtml($body);
                 $mail->setFrom($email);
-                $mail->addTo('daniel.remeseiro@gmail.com', 'daniel remeseiro');
+                $mail->addTo('your_admin_email@example.com', 'admin adminer');
                 $mail->setSubject('vulnia.com - contact  from ' . $email);
                 $mail->send();
 
